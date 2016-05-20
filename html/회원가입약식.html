@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+
+    </title>
+</head>
+<body>
+    <h1>회원가입</h1>
+    <form actoion ="./" method = "get"> <!--form으로 싸서 reset 범위 지정-->
+
+
+         <fieldset> <!--fieldset에 legend는 필수 -->
+            <legend></legend>
+            <ul>
+                <li>
+                    <label for="ID">
+                    <input type="text" id="ID" name="ID" placeholder="아이디"/> <!--placeholder로 안에 레이블 생성가능-->
+                    </label>
+                </li>
+                <li>
+                    <label for="PW">비밀번호</label>
+                    <input type="password" name= "PW" id="PW" />
+                </li>
+                <li>
+                    성별
+                    <input type="radio" name = "sex" id="man" /><label for="man">남자</label>
+                    <input type="radio" name = "sex" id="woman" /><label for="woman">여자</label>
+                    <input type="radio" name = "sex" id="bi" /><label for="bi">양성</label>
+                </li>
+                <li>
+                    <label for="a1">결혼여부</label>
+                    <input type="checkbox" name = "M" id="a1" /><label for="a1">미혼</label>
+                    <input type="checkbox" name = "M" id="a2" /><label for="a2">기혼</label>
+                    <input type="checkbox" name = "M" id="a3" /><label for="a3">예정</label>
+                    <input type="checkbox" name = "M" id="a4" /><label for="a4">중혼</label>
+                </li>
+                <li>
+                    <label for="photo">사진업로드</label>
+                    <input type="file" id="photo" />
+                                    </li>
+                <li></li>
+            </ul>
+
+<input type="button" value="취소" />
+<input type="button" value="전송" />
+<input type="reset" value="초기화" />
+        </fieldset>
+    </form>
+
+
+
+
+</body>
+</html>
