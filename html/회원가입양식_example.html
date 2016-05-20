@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>회원가입</title>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend>필수입력사항</legend>
+            <ul>
+                <li>
+                    <label for="ID">
+                        <input type="text" name="userId" placeholder="아이디" id="ID" /><br/><br/>
+                    </label>
+                </li>
+                <li>
+                    <label for="PW">
+                        <input type="password" name="userPW" placeholder="비밀번호" id="pw"/><br/><br/>
+                    </label>
+                </li>
+                <li>
+                    성별
+                        <input type="radio" name="sex" id="man" /><label for="man">남</label>
+                        <input type="radio" name="sex" id="woman" /><label for="woman">여</label><br/><br/>
+                </li>
+                <li>
+                    결혼여부
+                        <input type="radio" name="marry" id="MO" /><label for="MO">미혼</label>
+                        <input type="radio" name="marry" id="MX" /><label for="MX">기혼</label><br/><br/>
+                </li>
+                <li>
+                    취미
+                        <input type="checkbox" name="hobby1" id="A1" /> <label for="A1">운동</label>
+                        <input type="checkbox" name="hobby2" id="A2" /> <label for="A2">독서</label>
+                        <input type="checkbox" name="hobby3" id="A3" /> <label for="A3">음악감상</label>
+                        <input type="checkbox" name="hobby4" id="A4" /> <label for="A4">영화</label>
+                        <input type="checkbox" name="hobby5" id="A5" /> <label for="A5">TV</label><br/><br/>
+                </li>
+                <li>
+                    <label for="photo">프로필사진</label>
+                        <input type="file" name="PH" id="photo" /><br/><br/>
+                </li>
+            </ul>
+
+            <input type="button" value="취소" />
+            <input type="button" value="전송" />
+            <input type="reset" value="초기화" />
+
+
+        </fieldset>
+    </form>
+</body>
+</html>
