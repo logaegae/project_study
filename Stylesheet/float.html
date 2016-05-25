@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>float</title>
+    <style>
+        .a{float:left; background-color: #00F;}
+        .box{
+            width: 200px;
+            height: 200px;
+            border: 1px #F00 solid;
+            }
+        .b{background-color: #CCC; width : auto; height: auto; margin-left:0px;}
+        .wrap{max-width :921px}
+    </style>
+</head>
+<body>
+    <!-- float 공중에 뜸. 윗 순서에는 영향을 못주고 밑 순서는 float된 자리로 들어간다.
+         뒷 순서의 컨텐츠는 float가 선언된 엘리먼트를 피해간다-->
+    <div class="wrap">
+
+
+        <div class="box a"><!--클래스를 2개 줄때는 띄어쓰기한다 -->
+
+        </div>
+        <div class="box b">
+            (서울=연합뉴스) 김연숙 기자 = 중국 통신장비 회사인 화웨이가 삼성전자를 상대로 특허권 침해 소송을 제기한 가운데 삼성전자가 맞소송 등 적극적인 대응을 시사했다.
+            안승호 삼성전자 지식재산권(IP)센터장(부사장)은 25일 삼성 서초사옥에서 기자들과 만나 화웨이에 대한 대응방안과 관련한 질문에 "맞소송이든 해야겠죠. 그쪽(화웨이)에서 그렇게 나오면 가만히 있을 수는 없겠고…"라고 말했다.
+            안 부사장이 이끄는 IP센터는 삼성전자의 전사적인 특허관리를 담당한다.
+            그는 국가지식재산위원회 민간위원, 한국지식재산협회(KINPA), 한국특허정보원 비상임이사 등도 맡고 있다.
+        </div>
+
+    </div>
+</body>
+</html>
