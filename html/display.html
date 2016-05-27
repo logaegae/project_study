@@ -5,9 +5,12 @@
     <title>Document</title>
     <style type="text/css">
     
-    .menu {border: 1px #F00 solid; width = 200px;}
-    .menu 
-    
+    .menu {border: 1px #F00 solid; width :200px; padding :10px;}
+    .menu ul ul {display:none; border : 1px #00F solid; transition : 1;}
+    .menu ul ul ul{display:none; border : 1px #0F0 solid;}
+    .menu ul>li:hover ul {display:block;}
+    .menu ul>li:hover ul ul{display:none;}
+    .menu ul>li>ul>li:hover ul {display:block;}
     </style>
 </head>
 <body>
@@ -15,7 +18,13 @@
         <ul>
             <li>text
                 <ul>
-                <li>text</li>
+                <li>text
+                    <ul>
+                        <li>text</li>
+                        <li>text</li>
+                        <li>text</li>
+                    </ul>
+                </li>
                 <li>text</li>
                 <li>text</li>
                 </ul>

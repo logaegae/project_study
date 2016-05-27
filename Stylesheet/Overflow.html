@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>overflow</title>
+    <style>
+        .box{
+        
+            width: 200px;
+            height: 200px;
+            border: 1px #00F solid
+            }
+        .box img{height: 100%;margin-top:10px}
+        .visi{border: 1px #00F solid; height: 300px;}
+        .visi ul{margin: 0;padding: 0;}
+        .visi li{border: 1px #F00 solid;}
+        .visi li.first {width: 300px; height: 200px; overflow: hidden; float: left; margin-top:40px;}
+        .visi li.first img{width: 100px;}
+
+    </style>
+</head>
+<body>
+    <!-- overflow : hidden, visible / 주어진 영역을 넘기면 보일지 말지 설정-->
+    <div class=box>
+        아무텍스트나스페이스가없으면한단어로인식하고이게너무길면넘어간다??
+        <img src="../images/1.jpg" alt="1" />
+    </div>
+
+    <br /><br /><br /><br />
+
+    <div class="visi">
+        <ul>
+            <li class = "first"><img src="../images/1.jpg" alt="" /></li>
+            <li>아무거나텍스트가들어가는자리</li>
+            <li>아무거나텍스트가들어가는자리</li>
+        </ul>
+    </div>
+</body>
+</html>
