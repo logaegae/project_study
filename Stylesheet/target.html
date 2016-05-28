@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        .menu { border: 1px #F00 solid; width : 300px; }
+        .menu ul ul { border: 1px #F00 solid; width:200px; height:0px; overflow:auto; transition:1s cubic-bezier(0.25, 0.46, 0.45, 0.94);;}
+        .menu ul ul:target{height:150px;}
+        .menu1 {border : 1px #00F solid; width:50px; height:50px; float:left;}
+        .menu1::before {display:block; float : left; clear: both;}
+    </style>
+</head>
+<body>
+    <div class="menu1"></div>
+    
+    <div class="menu">
+        <ul>
+            <li><a href="#text1">text</a>
+                <ul id="text1">
+                    <li >
+                        이동 후 확대, 회전 후 이동 후 확대 등으 변환을 적용하려면 아무래도 위의 행렬 식으로 기억하는게 좋다 HTML5 에서의 변환 함수는 OpenGL과 비슷한 방식으로 동작한다 본적으로 변환 행렬이 내부에 존재하고setTransform()을 제외한 나머지 4개의 함수들이 호출될 때마다 행렬이 곱해진다
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#text2">text</a>
+                <ul id="text2">
+                    <li>
+                        이동 후 확대, 회전 후 이동 후 확대 등으 변환을 적용하려면 아무래도 위의 행렬 식으로 기억하는게 좋다 HTML5 에서의 변환 함수는 OpenGL과 비슷한 방식으로 동작한다 본적으로 변환 행렬이 내부에 존재하고setTransform()을 제외한 나머지 4개의 함수들이 호출될 때마다 행렬이 곱해진다
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#text3">text</a>
+                <ul id="text3">
+                    <li>
+                        이동 후 확대, 회전 후 이동 후 확대 등으 변환을 적용하려면 아무래도 위의 행렬 식으로 기억하는게 좋다 HTML5 에서의 변환 함수는 OpenGL과 비슷한 방식으로 동작한다 본적으로 변환 행렬이 내부에 존재하고setTransform()을 제외한 나머지 4개의 함수들이 호출될 때마다 행렬이 곱해진다
+                    </li>
+                </ul>
+        </ul>
+        
+    </div>
+    
+</body>
+</html>
