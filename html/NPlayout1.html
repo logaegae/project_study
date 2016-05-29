@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        ul,ol,li{list-style: none ; margin:0; padding:0;}
+        li{font-size: 14px;}
+        dt {font-size:14px;}
+        dd {font-size:13px;}
+        a:link {color:#000; text-decoration:none;}
+        a:visited {color:#000; text-decoration:none;}
+        a:hover {color:#999; text-decoration:none;}
+        dl a:link {color:#999; text-decoration:none;}
+        dl a:visited {color:#999; text-decoration:none;}
+
+        .wrapper
+        {
+            outline:1px #F00 solid;
+            width: 900px;
+            height: 540px;
+            margin: 0 auto;
+        }
+        .header
+        {
+            outline:1px #F00 solid;
+            width: auto;
+            height: 55px;
+            padding : 20px 0 33px;
+            margin : 0 30px;
+            border-bottom : 3px #000 solid;
+        }
+        .h_left
+        {   
+            outline:1px #F00 solid;
+            width: 260px;
+            height: 55px;
+            float:left;
+        }
+        .h_right
+        {
+            outline:1px #F00 solid;
+            width: 468px;
+            height: 60px;
+            float:right;
+        }
+        .h_left_bot
+        {
+            outline:1px #F00 solid;
+            clear : both;
+        }
+        .body
+        {
+            width: 840px;
+            height: 380px;
+            outline: 1px #F00 solid;
+            margin : 10px auto;
+        }
+        .l_cont
+        {
+            outline : 1px #F00 solid;
+            width: 580px;
+            height: 380px;
+            padding-right : 0 10px 0 0;
+            border-right : 1px #000 solid;
+            margin : 0 10px 0 0;
+            float:left;
+            
+            
+        }
+        .r_cont
+        {
+            outline : 1px #00F solid;
+            height: 380px;
+            width : 249px;
+            float:right;
+            
+        }
+        .r_c_m_box
+        {
+            outline : 1px #F00 solid;
+            width: 249px;
+            height: 88px;
+            padding : 0px;
+            margin : 5px 0px;
+        }
+        .r_c_m_box li
+        {
+            height: 22px;
+            outline : 1px #F00 solid;
+        }
+        .r_c_b_box
+        {
+            outline : 1px #F00 solid;
+            width: 249px;
+            height: 145px;
+            padding : 0px;
+            margin : 0px;
+            background-color:#ddd;
+        }
+        .r_c_b_box div:first-child
+        {
+            height: 28px;
+            padding : 0 0 0 10px;
+            border-bottom:1px #000 solid;
+          
+            margin : 0 0 5px;
+            
+        }
+        .r_c_b_box div:first-child span
+        {
+            
+            color : #F00;
+            font-size: 12px;
+            outline : 1px #F00 solid;
+            
+        }
+        .r_c_b_box div+div
+        {
+            background-color:#ddd;
+            height: 100px;
+            padding : 0 10px;
+        }
+        .r_c_b_box div+div ol li
+        {
+            height: 20px;
+            outline : 1px #F00 solid;
+            display : block;
+            text-overflow : ellipsis;
+            white-space : nowrap;
+            overflow : hidden;
+            font-size : 12px;
+        }
+        .r_c_t_box
+        {
+            outline : 1px #F00 solid;
+            width: 249px;
+            height: 60px;
+            padding : 0px;
+            margin : 8px 0 0 ;
+        }
+        .r_c_t_box img
+        {
+            width: 90px;
+            height: 60px;
+            margin : 0 5px 0 0;
+            float : left;
+        }
+        .r_c_t_box p
+        {
+            float : left;
+            font-size : 14px;
+            margin : 0;
+        }
+        .l_c_u
+        {
+            outline : 1px #F00 solid;
+            
+            height: 185px;
+        }
+        .l_c_u2
+        {
+            outline : 3px #0F0 solid;
+            width : 580px;
+            height: 195px;
+        }
+        .title strong
+        {
+            outline : 1px #F00 solid;
+            height : 27px;
+            margin : 0 0 5px;
+            display : block;
+            font-size : 20px;
+            
+        }
+
+        .title img
+        {
+            outline : 1px #F00 solid;
+            width : 200px;
+            height : 126px;
+            margin : 0 10px 0 0;
+            float : left;
+            
+        }
+        .l_c_t_box
+        {
+            width: 200px;
+            height: 126px;
+            outline: 1px #F00 Solid;
+            margin : 0 0 210px;
+        }
+        .title+li~li
+        {
+            list-style: disc;
+            margin : 0 0 0 230px;
+            
+        }
+        .l_c_u2_box
+        {
+            width: 330px;
+            height: 195px;
+            background-color: #ddd;
+            float : left;
+            text-indent : 10px
+        }
+        .l_c_u2_box li
+        {
+            border-top : 1px #000 solid;
+            width: 320px;
+            height: 27px;
+        }
+        .l_c_u2_box li:first-child
+        {
+            border-top: 0px;
+        }
+        .l_c_u2_imgs
+        {
+            outline :1px #F00 solid;
+            width: 240px;
+            height: 195px;
+            float: right;
+        }
+        .l_c_u2_imgs li
+        {
+            width: 112px;
+            height: 91px;
+            margin : 0 8px 10px 0;
+        }
+        .l_c_u2_imgs li:first-child
+        {
+            float : left;
+        }
+        .l_c_u2_imgs li+li
+        {
+            float : right;
+        }
+        .l_c_u2_imgs li+li+li
+        {
+            float : left;
+        }
+        .l_c_u2_imgs li+li+li+li
+        {
+            float : right;
+        }
+        .l_c_u2_imgs li img
+        {
+            width: 110px;
+            height: 60px;
+            border: 1px #000 solid;
+            margin : 0 0 5px 0;
+            display:block;
+        }
+        .l_c_u2_imgs p
+        {
+            font-size:10px;
+            text-align : center;
+            margin : 0px;
+        }
+        
+    </style>
+    
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <div class="h_left"><img src="http://static.naver.net/newsstand/up/2013/0813/nsd114542158.gif" alt="/newsci" title="오마이뉴스"></div>
+            <div class="h_right"><img src="http://adcreative.naver.com/ad3/1004/1004874/468_60_01446516899395.jpg" alt="top-banner"title="광고"></div>
+            <div class="h_left_bot">
+                <button>구독하기</button>
+                <button>이용자한마디</button>
+                <button>소셜보내기</button>
+                05-28 12:27편집
+            </div>
+            
+        </div>
+        <div class="body">
+            <!--왼쪽 콘텐츠-->
+            <div class="l_cont">
+                <div class="l_c_u">
+                    <ul>
+                        <li class="title">    
+                        <strong><a href="">커피 한 잔이 전부였던 노시인의 쓸쓸한 장례식</a></strong>
+                        <a href="" ><img src="http://static.naver.net/newsstand/2016/0528/ohmynews/171959/002.jpg"></img></a>
+                        </li>
+                        <li>
+                            <dl>
+                                <dt>
+                                    <a href="">문인들의 가난이 결코 낯설지 않은 몇 가지 사례들</a>
+                                </dt>
+                                <dd>
+                                    <a href="">지난 17일 매스컴은 일제히 한국 소설가 ... 최일화</a>
+                                </dd>
+                            </dl>
+                         </li>
+                         <li><a href="">[보도후] 카톡 웹문서 수집 인정 "다음 검색 연동 중단"</a></li>
+                         <li><a href="">광주 온 외신기자 "전두환 같은 부류의 인간들은..."</a></li>
+                         <li><a href="">20년간 허수아비로... 아들 발목 잡은 어머니</a></li>
+                         <li><a href="">어버이연합 청문회, 결국 물건너 가나</a></li>
+                        
+                    </ul>
+                </div>
+                <div class="l_c_u2">
+                    <div class="l_c_u2_box">
+                        <li style="color:red;">남자 30명이 소녀 집단 성폭행... 브라질 '분노'</li>
+                        <li>대통령의 '법률안 거부권', 헌법에는 없다</li>
+                        <li>160만원짜리 레고 배우기... 여섯 살도 학원 간다</li>
+                        <li style="color:red;">파키스탄, 남편 말 안 듣는 아내 때리는 법 추진</li>
+                        <li>그래서 술을 마시라는 건가, 말라는 건가</li>
+                        <li>"더는 기념하지 않는 게 이은상 위하는 길"</li>
+                        <li style="color:red;">'상시청문회 거부' 박 대통령, 정말 졸렬하다</li>
+                    </div>
+                    <div class="l_c_u2_imgs">
+                        <li><a href=""><img src="http://static.naver.net/newsstand/2016/0529/ohmynews/171405/003.jpg" alt="기사1" title="맛집사진"/></a>
+                            <a href=""><p>세상에 알리지 말라는 <br /> 이집, 어찌할까?</p></a>
+                        </li>
+                        <li><a href=""><img src="http://static.naver.net/newsstand/2016/0529/ohmynews/171405/004.jpg" alt="기사2" title="강아지사진"/></a>
+                            <a href=""><p>선생에게 '뭔 개소리?' <br /> 이 친구를 어찌할까요</p></a>
+                        </li>
+                        <li><a href=""><img src="http://static.naver.net/newsstand/2016/0529/ohmynews/171405/005.jpg" alt="기사3" title="스키아이콘"/></a>
+                            <a href=""><p>해발 3300미터에서 <br /> 타는 스키? 입이 쩍!</p></a>
+                        </li>
+                        <li><a href=""><img src="http://static.naver.net/newsstand/2016/0529/ohmynews/171405/006.jpg" alt="기사4" title="일본전통화"></a>
+                            <a href=""><p>이 남자 배신 없었다면 <br /> 임진왜란도 없었다?
+</p></a>
+                        </li>
+                    </div>
+                </div>
+            </div>
+            <!--오른쪽 콘텐츠-->
+            <div class="r_cont">
+                <ul class="r_c_t_box">
+                    <a href=""><img src="http://static.naver.net/newsstand/2016/0529/ohmynews/171405/007.jpg" alt="우측기사1" title="송가연사진" /></a>
+                    <a href=""><p><strong>프로파이터 여고생<br />"아무도 예상 못했죠"</strong></p></a>
+                </ul>
+          
+                <ul class="r_c_t_box">
+                    <a href=""><img src="http://static.naver.net/newsstand/2016/0529/ohmynews/171405/008.jpg" alt="우측기사2" title="축구선수사진" />
+                    <a href=""><p><strong>풍운아 윤빛가람<br />대표팀서 다시 뜰까</strong></p></a>
+                    </a>
+                </ul>
+                <ul class="r_c_m_box">
+                    <li><a href="">"트랙 위에선 아무도 날 못 막아요"</a></li>
+                    <li><a href=""><아가씨>와 강남역 여성 살인사건</a></li>
+                    <li><a href="">[인터뷰] 이용관은 아직 싸우고 있다</a></li>
+                    <li><a href="">이들은 정말 노후대책 없다, 음악뿐</a></li>
+                </ul>
+                <div class="r_c_b_box">    
+                    
+                        <div><a href=""><span>많이본기사</span></a></div>
+                        <div>
+                            <ol>
+                                <li><a href="">"카톡에 링크했을 뿐인데", 1시간만에 다음검색 노출</a></li>
+                                <li><a href="">"대통령의 '법률안 거부권', 헌법에는 없다</a></li>
+                                <li><a href="">"박 대통령은 지금 아프리카로 가야만 했나</a></li>
+                                <li><a href="">"어버이연합 청문회, 결국 물건너 가나출</a></li>
+                                <li><a href="">"이 남자 배신 없었다면, 임진왜란도 없었다?</a></li>
+                            </ol>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>
