@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>블로터</title>
+    <style type="text/css">
+    *{margin :0; padding : 0;}
+    ul,ol{list-style : none;}
+        .wrapper
+        {
+            width: 900px;
+            height: 540px;
+            margin : 10px auto;
+            outline : 1px #F00 solid;
+        }
+        .header
+        {
+            width: 840px;
+            height: 55px;
+            padding: 20px 0 33px;
+            border-bottom : 3px #000 solid;
+            margin : 0 auto 15px;
+            outline : 1px #F00 solid;
+        }
+        .header div:first-child
+        {
+            width: 260px;
+            height: 55px;
+            outline : 1px #F00 solid;
+            float : left;
+        }
+        .header div:first-child+div
+        {
+            width : 468px;
+            height: 60px;
+            outline : 1px #F00 solid;
+            float : right;
+        }
+        .header  div:first-child+div+div
+        {
+            outline : 1px #F00 solid;
+            display : block;
+            clear : both;
+        }
+        .body
+        {
+            width: 840px;
+            height: 380px;
+            outline : 1px #F00 solid;
+            margin : 0 auto;
+        }
+        .body div:first-child
+        {
+            width: 840px;
+            height: 173px;
+            outline : 1px #F00 solid;
+            margin : 0 0 15px;
+        }
+        .body div:first-child a:first-child
+        {
+            width: 267px;
+            height: 173px;
+            outline : 1px #F00 solid;
+            float:left;
+            display : block;
+        }
+        .body div:first-child a:first-child+a
+        {
+            width: 267px;
+            height: 173px;
+            outline : 1px #F00 solid;
+            float : right;
+            display : block;
+        }
+        .body div:first-child a:first-child+a+a
+        {
+            width: 267px;
+            height: 173px;
+            outline : 1px #0F0 solid;
+            margin : 0 auto;
+            display : block;
+        }
+     
+     
+     
+     
+        .body div:first-child+div
+        {
+            height: 80px;
+            margin : 20px 0 0;
+            outline : 1px #0F0 solid;
+        }
+        
+        
+        
+        .body div:first-child+div ul:first-child
+        {
+            float:left;
+            outline : 1px #F00 solid;
+            width: 412px;
+        }
+        .body div:first-child+div ul:first-child li:first-child
+        {
+            width: 123px;
+            height: 80px;
+            outline : 1px #0F0 solid;
+            float:left;
+        }
+        .body div:first-child+div ul:first-child li:first-child+li
+        {
+            width : 279px;
+            outline : 1px #F00 solid;
+            height: 20px;
+            float:right;
+        }
+        .body div:first-child+div ul:first-child li:first-child+li+li
+        {
+            width : 279px;
+            outline : 1px #F00 solid;
+            margin : 3px 0 0;
+            height: 51px;
+            float:right;
+        }
+        .body div:first-child+div ul:first-child+ul
+        {
+            float:right;
+            outline : 1px #F00 solid;
+            width: 412px;
+        }
+        .body div:first-child+div ul:first-child+ul li:first-child
+        {
+            width: 123px;
+            height: 80px;
+            outline : 1px #0F0 solid;
+            float:left;
+        }
+        .body div:first-child+div ul:first-child+ul li:first-child+li
+        {
+            width : 279px;
+            outline : 1px #F00 solid;
+            height: 20px;
+            float:right;
+        }
+        .body div:first-child+div ul:first-child+ul li:first-child+li+li
+        {
+            width : 279px;
+            outline : 1px #F00 solid;
+            margin : 3px 0 0;
+            height: 51px;
+            float:right;
+        }
+        
+        
+        
+  
+        .body div:first-child+div+div
+        {
+            height: 80px;
+            margin : 15px 0 0;
+            outline : 1px #0F0 solid;
+        }
+        
+        .body div:first-child+div+div ul:first-child
+        {
+            float:left;
+            outline : 1px #F00 solid;
+            width: 412px;
+
+        }
+        .body div:first-child+div+div ul:first-child li:first-child
+        {
+            width: 123px;
+            height: 80px;
+            outline : 1px #0F0 solid;
+            float:left;
+        }
+        .body div:first-child+div+div ul:first-child li:first-child+li
+        {
+            width : 279px;
+            outline : 1px #F00 solid;
+            height: 20px;
+            float:right;
+        }
+        .body div:first-child+div+div ul:first-child li:first-child+li+li
+        {
+            width : 279px;
+            outline : 1px #F00 solid;
+            margin : 3px 0 0;
+            height: 51px;
+            float:right;
+        }
+        .body div:first-child+div+div ul:first-child+ul
+        {
+            float:right;
+            outline : 1px #F00 solid;
+            width: 412px;
+        }
+        .body div:first-child+div+div ul:first-child+ul li:first-child
+        {
+            width: 123px;
+            height: 80px;
+            outline : 1px #0F0 solid;
+            float:left;
+        }
+        .body div:first-child+div+div ul:first-child+ul li:first-child+li
+        {
+            width : 279px;
+            outline : 1px #F00 solid;
+            height: 20px;
+            float:right;
+            
+        }
+        .body div:first-child+div+div ul:first-child+ul li:first-child+li+li
+        {
+            width : 279px;
+            outline : 1px #F00 solid;
+            margin : 3px 0 0;
+            height: 51px;
+            float:right;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <div>CI</div>
+            <div>배너</div>
+            <div>
+                <button>구독하기</button>
+                <button>이용자한마디</button>
+                <button>소셜보내기</button>
+                
+            </div>
+        </div>
+        <div class="body">
+             <div>
+                 <a href=""><img src="" alt="">이미지1</a>
+                 <a href=""><img src="" alt="">이미지3</a>
+                 <a href=""><img src="" alt="">이미지2</a>
+             </div>
+        
+            <div>
+                <ul>
+                    <li>이미지1</li>
+                    <li>기사제목1</li>
+                    <li>기사내용1</li>
+                </ul>
+                <ul>
+                    <li>이미지2</li>
+                    <li>기사제목2</li>
+                    <li>기사내용2</li>
+                </ul>
+            </div>
+            
+            <div>
+                <ul>
+                    <li>이미지3</li>
+                    <li>기사제목3</li>
+                    <li>기사내용3</li>
+                </ul>
+                <ul>
+                    <li>이미지4</li>
+                    <li>기사제목4</li>
+                    <li>기사내용4</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>세계일보</title>
+    <style type="text/css">
+    *{margin :0; padding : 0;}
+    ul,ol,li{list-style : none;}
+        .wrapper
+        {
+            width: 900px;
+            height: 540px;
+            margin : 10px auto;
+            outline : 1px #F00 solid;
+        }
+        .header
+        {
+            width: 840px;
+            height: 55px;
+            padding: 20px 0 33px;
+            border-bottom : 3px #000 solid;
+            margin : 0 auto 15px;
+            outline : 1px #F00 solid;
+        }
+        .header div:first-child
+        {
+            width: 260px;
+            height: 55px;
+            outline : 1px #F00 solid;
+            float : left;
+        }
+        .header div:first-child+div
+        {
+            width : 468px;
+            height: 60px;
+            outline : 1px #F00 solid;
+            float : right;
+        }
+        .header  div:first-child+div+div
+        {
+            outline : 1px #F00 solid;
+            display : block;
+            clear : both;
+        }
+        .body
+        {
+            width: 840px;
+            height: 380px;
+            outline : 1px #F00 solid;
+            margin : 0 auto;
+            
+        }
+         .body .cl
+       {
+            width: 609px;
+            height: 380px;
+            outline : 1px #F00 solid;
+            float:left;
+            border-right:1px #000 solid;
+
+        }
+        .body .cl .cl1
+        {
+            width: 609px;
+            height: 112px;
+            outline : 1px #F00 solid;
+            border-bottom : 1px #000 solid;
+
+
+        }
+        .body .cl .cl1 img
+        {
+            width: 150px;
+            height: 103px;
+            float:left;
+            outline: 1px #F00 solid;
+
+        } 
+        .body .cl .cl1 ul:first-child>li:first-child+li
+        {
+            width: 450px;
+            height: 32px;
+            margin: 0 0 7px;
+            outline: 1px #F00 solid;
+            float:right;
+        }
+        .body .cl .cl1 ul:first-child>li:first-child+li+li
+        {
+            width: 450px;
+            height: 67px;
+            outline: 1px #F00 solid;
+            float:right;
+        }
+        .body .cl .cl1+div
+        {
+            width: 609px;
+            height: 267px;
+            outline : 1px #F00 solid;
+            float:left;
+
+        }
+        .body .cl .cl1+div .cl2_1
+        {
+            width: 359px;
+            height: 252px;
+            outline : 1px #F00 solid;
+            float:left;
+            border : 0px;
+            padding:15px 0 0;
+
+        }      
+
+        .body .cl .cl1+div .cl2_1 ul:first-child>li
+        {
+            width: 360px;
+            height: 32px;
+            outline : 1px #0F0 solid;
+        }
+        .body .cl .cl1+div .cl2_1+div
+        {
+            width: 250px;
+            height: 253px;
+            outline : 1px #0F0 solid;
+            padding : 15px 0 0;
+            float:right;
+            border:0px;
+
+        }        
+        .body .cl .cl1+div .cl2_1+div>ul>li
+        {
+            width: 108px;
+            height: 110px;
+            padding :0 0 0 14px;
+            margin : 0 0 20px;
+            float:left;
+            outline: 1px #F00 solid;
+        }
+        .body .cl .cl1+div .cl2_1+div>ul>li>a
+        {
+            width: 106px;
+            height: 109px;
+            outline: 1px #00F solid;
+            display: block;
+        }        
+        .body .cl .cl1+div .cl2_1+div>ul>li>a>img
+        {
+            width: 102px;
+            height: 73px;
+            padding :0 0 2px 5px;
+            outline: 1px #F00 solid;
+        }
+
+        .body .cr
+        {
+            width: 229px;
+            height: 380px;
+            outline : 1px #F00 solid;
+            float:right;
+            
+        }
+        .body .cr .r_t_box1
+        {
+            width: 229px;
+            height: 16px;           
+            outline : 1px #F00 solid;
+            border: 0px;
+        }
+        .body .cr .r_t_box1>a
+        {
+            font-size:10px;
+        }
+        .body .cr .r_t_box2
+        {
+            outline : 1px #F00 solid;
+            width: 229px;
+            height: 208px;
+        }
+        .body .cr .r_t_box2>ul>li>a
+        {
+            float:left;
+            width: 79px;
+            height: 55px;
+            outline: 1px #0F0 solid;
+            margin : 10px 0 0 10px;
+            clear:left;
+        }
+        .body .cr .r_t_box2>ul>li>p
+        {
+            width: 126px;
+            height: 38px;
+            margin:17px 0 0 8px;
+            outline: 1px #F00 solid;
+            float:right;
+            
+        }
+        .body .cr .r_t_box3
+        {
+            width: 229px;
+            height: 156px;
+            outline: 1px #F00 solid;
+            clear:both;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <div>CI</div>
+            <div>배너</div>
+            <div>
+                <button>구독하기</button>
+                <button>이용자한마디</button>
+                <button>소셜보내기</button>
+                
+            </div>
+        </div>
+         <div class="body">
+             <div class="cl">
+                 <div class = "cl1">
+                     <ul>
+                     <li><a href=""><img src="" alt=""></a></li>
+                     <li><a href="">헤드라인1</a></li>
+                     <li><a href="">기사내용</a></li>
+                     </ul>
+                 </div>
+                 <div>
+                     <div class ="cl2_1">
+                         <ul>
+                             <li><a href="">기사1</a></li>
+                             <li><a href="">기사2</a></li>
+                             <li><a href="">기사3</a></li>
+                             <li><a href="">기사4</a></li>
+                             <li><a href="">기사5</a></li>
+                             <li><a href="">기사6</a></li>
+                             <li><a href="">기사7</a></li>
+                             <li><a href="">기사8</a></li>
+                         </ul>
+                     </div>
+                     <div>
+                         <ul>
+                             <li><a href=""><img src="" alt=""></a></li>
+                             <li><a href=""><img src="" alt=""></a></li>
+                             <li><a href=""><img src="" alt=""></a></li>
+                             <li><a href=""><img src="" alt=""></a></li>
+                         </ul>
+                     </div>
+                 </div>
+             </div>
+
+             <div class="cr">
+                     <div class="r_t_box1">
+                         <a href=""><img src="" alt="">오늘의 HOT 뉴스 이미지</a>
+                     </div>
+                     <div class="r_t_box2">
+                         <ul>
+                         <li>
+                             <a href=""><img src="" alt=""></a>
+                             <p>기사1</p>
+                         </li>
+                         <li>
+                             <a href=""><img src="" alt=""></a>
+                             <p>기사2</p>
+                         </li>
+                         <li>
+                             <a href=""><img src="" alt=""></a>
+                             <p>기사3</p>
+                         </li>
+                         </ul>
+                    </div>
+                    <div class="r_t_box3">
+                             <a href=""><img src="" alt=""></a>
+                    </div>
+
+             </div>
+         </div>
+ 
+    </div>
+</body>
+</html>

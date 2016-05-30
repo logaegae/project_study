@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>프레시안</title>
+    <style type="text/css">
+        *{margin:0; padding:0;}
+        ul,ol,li{list-style:none;}
+        .wrapper
+        {
+            width: 900px;
+            height: 540px;
+            margin : 10px auto;
+            outline : 1px #F00 solid;            
+        }
+        .header
+        {
+            width: 840px;
+            height: 55px;
+            padding: 20px 0 33px;
+            border-bottom : 3px #000 solid;
+            margin : 0 auto 15px;
+            outline : 1px #F00 solid;
+        }
+        .header .ci
+        {
+            width: 260px;
+            height: 55px;
+            outline : 1px #F00 solid;
+            float : left;
+        }
+        .header .ci+div
+        {
+            width : 468px;
+            height: 60px;
+            outline : 1px #F00 solid;
+            float : right;
+        }
+        .header  .ci+div+div
+        {
+            outline : 1px #F00 solid;
+            display : block;
+            clear : both;
+        }
+        .body
+        {
+            width: 840px;
+            height: 380px;
+            outline : 1px #F00 solid;
+            margin : 0 auto;
+        }
+        .body img
+        {
+            width:100%;
+        }
+        .header span
+        {
+            font-size:12px;
+        }
+        .cl
+        {
+            width: 606px;
+            height: 380px;
+            outline: 1px #F00 solid;
+            float:left
+        }
+        .cr
+        {
+            width: 220px;
+            height: 380px;
+            outline: 1px #F00 solid;
+            margin-left : 617px;
+        }
+        .cl_t
+        {
+            height: 240px;
+            outline: 1px #F00 solid;
+            border-bottom : 1px #000 solid;
+            padding-bottom : 10px;
+            
+        }
+        .cl_t+div
+        {
+            margin-top : 10px;
+            height: 119px;
+            outline: 1px #F00 solid;
+        }
+
+        .main
+        {
+            border :1px #F00 solid;
+            width: 360px;
+            height: 240px;
+            float: left;
+        }
+        .mr
+        {
+            outline: 1px #F00 solid;
+            height : 119px;
+            width : 240px;
+            height: 240px;
+            margin-left : 4px;
+            float:left;
+        }
+        .mr ul li
+        {
+            margin: 0 3px 7px 0;
+            height : 115px;
+            width : 115px;
+            border: 1px #F00 solid;
+            float : left;
+            
+        }
+        span[class="sub_i"]
+        {
+            display:block;
+            width: 115px;
+            height: 78px;
+            outline: 1px #00F solid;
+        }
+        span.sub_i+span
+        {
+            outline: 1px #F00 solid;
+            height : 26px;
+            padding : 4px;
+            display : block;
+        }            
+
+        .cl_t+div li
+        {
+            margin: 1px 2px 0;
+            height : 115px;
+            width : 115px;
+            border: 1px #F00 solid;
+            float : left;
+        }        
+ 
+        .cr_t span:first-child
+        {
+            height:18px;
+            outline: 1px #F00 solid;
+            display : block;
+            padding : 5px 0 2px 5px;
+        }
+        .cr_t ol
+        {
+            height : 180px;
+            outline: 1px #F00 solid;
+        }
+        .cr_t ol li
+        {
+            height : 15px;
+            margin: 3px 0 0;
+            outline: 1px #F00 solid;
+            font-size:12px;
+        }
+        .cr_m span:first-child
+        {
+            height:18px;
+            outline: 1px #F00 solid;
+            display : block;
+            padding : 5px 0 2px 5px;
+            margin-top: 5px;
+        }
+        .cr_m div:first-child
+        {
+            height : 40px;
+            outline: 1px #F00 solid;
+        }
+        .cr_b span:first-child+a
+        {
+            width: 46px;
+            height: 66px;
+            outline: 1px #F00 solid;
+            float : left;
+            margin:4px 5px 0 0;
+        }
+        
+        .cr_b span:first-child
+        {
+            height:18px;
+            padding : 5px 0 2px 5px;
+            margin-top: 5px;
+            outline: 1px #F00 solid;
+            display : block;
+        }        
+
+        .cr_b div dl
+        {
+            width: 158px;
+            height : 70px;
+            outline: 1px #00F solid;
+            float:right;
+        }
+        .cr_b div dl dt
+        {
+            height : 30px;
+            width: 158px;
+            
+        }
+        .cr_b div dl dd
+        {
+            height : 30px;
+            margin-top : 5px;
+            width: 158px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <div class="ci">CI</div>
+            <div>BANNER</div>
+            <div>
+                <button>구독하기</button>
+                <button>이용자한마디</button>
+                <button>소셜보내기</button>
+                <span>05-30 07:09편집</span>
+            </div>
+        </div>
+        <div class="body">
+            <div class="cl">
+                <div class="cl_t">
+                 
+                    <div class="main">
+                            <a href=""><img src="" alt=""></a>
+                    </div>
+                    
+                    <div class="mr">
+                        <ul>
+                            <li>
+                                <a href="">
+                                    <span class= "sub_i">
+                                    <img src="" alt="">
+                                    </span>
+                                    <span>기사1</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <span class= "sub_i">
+                                    <img src="" alt="">
+                                    </span>
+                                    <span>기사2</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <span class= "sub_i">
+                                    <img src="" alt="">
+                                    </span>
+                                    <span>기사3</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <span class= "sub_i">
+                                    <img src="" alt="">
+                                    </span>
+                                    <span>기사4</span>
+                                </a>
+                            </ll>  
+                        </ul>
+                    </div>   
+                </div>
+                
+                <div>
+                    <ul>
+                        <li>
+                            <a href="">
+                                <span class="sub_i">
+                                <img src="" alt="">
+                                </span>
+                                <span>기사1</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class= "sub_i">
+                                <img src="" alt="">
+                                </span>
+                                <span>기사2</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class = "sub_i">
+                                <img src="" alt="">
+                                </span>
+                                <span>기사3</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class= "sub_i">
+                                <img src="" alt="">
+                                </span>
+                                <span>기사4</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class= "sub_i">
+                                <img src="" alt="">
+                                </span>
+                                <span>기사5</span>
+                            </a>
+                        </li>
+                    </ul>  
+                </div>
+            </div>
+            <div class="cr">
+                <div class="cr_t">
+                    <span>뉴스클럽</span>
+                      <ol>
+                      
+                          <li><a href="">순위1</a></li>
+                          <li><a href="">순위2</a></li>
+                          <li><a href="">순위3</a></li>
+                          <li><a href="">순위4</a></li>
+                          <li><a href="">순위5</a></li>
+                          <li><a href="">순위6</a></li>
+                          <li><a href="">순위7</a></li>
+                          <li><a href="">순위8</a></li>
+                          <li><a href="">순위9</a></li>
+                          <li><a href="">순위10</a></li>
+    
+                      </ol>
+                </div>
+                <div class="cr_m">
+                    <span>오늘의 이슈</span>
+                    <div>
+                        <dl>
+                            <dt><a href="">제목</a></dt>
+                            <dd><a href="">기사내용</a></dd>
+                        </dl>
+                    </div>
+                </div>
+               
+                <div class="cr_b">
+                    <span>오늘의 서평</span>
+                    <a href=""><img src="" alt=""></a>
+                    <div>
+                        <dl>
+                            <dt><a href="">제목</a></dt>
+                            <dd><a href="">기사내용</a></dd>
+                        </dl>
+                    </div>
+                </div>    
+            
+            </div>
+        </div>
+    </div>
+        
+</body>
+</html>

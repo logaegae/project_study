@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+    *{margin :0; padding : 0;}
+    ul,ol{list-style : none;}
+        .wrapper
+        {
+            width: 900px;
+            height: 540px;
+            margin : 10px auto;
+            outline : 1px #F00 solid;
+        }
+        .header
+        {
+            width: 840px;
+            height: 55px;
+            padding: 20px 0 33px;
+            border-bottom : 3px #000 solid;
+            margin : 0 auto 15px;
+            outline : 1px #F00 solid;
+        }
+        .header div:first-child
+        {
+            width: 260px;
+            height: 55px;
+            outline : 1px #F00 solid;
+            float : left;
+        }
+        .header div:first-child+div
+        {
+            width : 468px;
+            height: 60px;
+            outline : 1px #F00 solid;
+            float : right;
+        }
+        .header  div:first-child+div+div
+        {
+            outline : 1px #F00 solid;
+            display : block;
+            clear : both;
+        }
+        .body
+        {
+            width: 840px;
+            height: 380px;
+            outline : 1px #F00 solid;
+            margin : 0 auto;
+        }
+        .body>div:first-child
+        {
+            width: 840px;
+            height: 215px;
+            outline : 1px #F00 solid;
+        }
+        .body>div:first-child+div
+        {
+            width: 840px;
+            height: 165px;
+            outline : 1px #F00 solid;
+        }
+        .body>div:first-child+div>.c2
+        {
+            width: 325px;
+            height: 165px;
+            outline : 1px #F00 solid;
+            float:left;
+        }
+        .body>div:first-child+div>.c2+div
+        {
+            width: 514px;
+            height: 165px;
+            outline : 1px #F00 solid;
+            float:right;
+        }
+        .c1
+        {
+            width: 320px;
+            height: 210px;
+            outline : 1px #F00 solid;
+            float:left;
+            margin : 0 7px 0 0;
+        }        
+        .c1~li
+        {
+            width: 162px;
+            height: 107px;
+            outline : 1px #F00 solid;
+            float:left;
+            margin : 0 0 0 9px;
+        }
+        .c2
+        {
+            width:325px;
+            border-right:1px #000 solid;
+        }
+        .c2>div
+        {
+            outline : 1px #F00 solid;
+            width: 325px;
+            height: 68px;
+            margin: 7px 0 13px;
+            
+        }
+        
+        .c2 div ul li:first-child a
+        {
+            width: 95px;
+            height: 68px;
+            outline:1px #F00 solid;
+            float:left;
+            margin : 0 10px 0 0;
+        }
+        .c3 ul li
+        {
+            width: 118px;
+            height: 154px;
+            outline:1px #F00 solid;
+            float:left;
+            margin: 7px 0 0 7px;
+        }
+        .c3 ul li img
+        {
+            width: 118px;
+            height: 105px;
+            outline:1px #F00 solid;
+        }
+        .c3 ul li img p
+        {
+            width: 104px;
+            height: 37px;
+            outline:1px #F00 solid;
+            padding : 5px;
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <div>CI</div>
+            <div>배너</div>
+            <div>
+                <button>구독하기</button>
+                <button>이용자한마디</button>
+                <button>소셜보내기</button>
+                
+            </div>
+        </div>
+         <div class="body">
+             <div>
+                 <ul>
+                     <li class="c1"><a href=""><img src="" alt=""></a></li>
+                     <li><a href=""><img src="" alt=""></a></li>
+                     <li><a href=""><img src="" alt=""></a></li>
+                     <li><a href=""><img src="" alt=""></a></li>
+                     <li><a href=""><img src="" alt=""></a></li>
+                     <li><a href=""><img src="" alt=""></a></li>
+                     <li><a href=""><img src="" alt=""></a></li>
+                 </ul>
+             </div>
+             <div>
+                 <div class="c2">
+                     <div>
+                         <ul>
+                            <li>
+                                 <a href=""><img src="" alt=""></a>
+                            </li>
+                             <li><a href="">기사1</a></li>
+                             <li><a href="">기사2</a></li>
+                             <li><a href="">기사3</a></li>
+                         </ul>
+                     </div>
+                     <div>
+                         <ul>
+                            <li>
+                                 <a href=""><img src="" alt=""></a>
+                            </li>
+                             <li><a href="">기사1</a></li>
+                             <li><a href="">기사2</a></li>
+                             <li><a href="">기사3</a></li>
+                         </ul>
+                     </div>
+                 </div>
+                 <div class="c3">
+                     <ul>
+                         <li>
+                             <a href=""><img src="" alt=""></a>
+                             <p>기사1</p>
+                         </li>
+                         <li>
+                             <a href=""><img src="" alt=""></a>
+                             <p>기사2</p>
+                         </li>
+                         <li>
+                             <a href=""><img src="" alt=""></a>
+                             <p>기사3</p>
+                         </li>
+                         <li>
+                             <a href=""><img src="" alt=""></a>
+                             <p>기사4</p>
+                         </li>
+                     </ul>
+                 </div>
+             </div>
+         </div>
+             
+    </div>
+</body>
+</html>
