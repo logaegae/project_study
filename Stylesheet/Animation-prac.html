@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Animation</title>
+    <style type="text/css">
+        /*layout*/
+        .wrapper
+        {
+            width: 270px;
+            height: 320px;
+            background-color:black;
+            position:relative;
+            margin : 100px auto;
+        }
+        .box1
+        {
+            width: 55px;
+            height: 55px;
+            background-color:white;
+            position:absolute;
+            left:8px;
+            top: 8px;
+            outline:1px black solid;
+        }
+        .box2
+        {
+            width: 55px;
+            height: 150px;
+            background-color:white;
+            position:absolute;
+            left:8px;
+            top: 71px;
+            outline:1px black solid;
+        }
+        .box3
+        {
+            width: 55px;
+            height: 82px;
+            background-color:blue;
+            position:absolute;
+            left:8px;
+            bottom: 8px;
+            outline:1px black solid;
+        }
+        .box4
+        {
+            width: 190px;
+            height: 213px;
+            background-color:red;
+            position:absolute;
+            right:8px;
+            top: 8px;
+            outline:1px black solid;
+        }
+        .box5
+        {
+            width: 145px;
+            height: 82px;
+            background-color:white;
+            position:absolute;
+            left:71px;
+            bottom: 8px;
+            outline:1px black solid;
+        }
+        .box6
+        {
+            width: 39px;
+            height: 37px;
+            background-color:white;
+            position:absolute;
+            right:8px;
+            bottom: 53px;
+            outline:1px black solid;
+        }
+        .box7
+        {
+            width: 39px;
+            height: 37px;
+            background-color:yellow;
+            position:absolute;
+            right:8px;
+            bottom: 8px;
+            outline:1px black solid;
+        }
+        
+        /*hover*/
+        .wrapper:hover .box1
+        {
+            animation:division-ul 1000ms ease infinite;
+        }
+        .wrapper:hover .box2
+        {
+            animation:division-l 1200ms ease-in infinite;
+        }
+        .wrapper:hover .box3
+        {
+            animation:division-dl 1400ms ease-out infinite;
+        }
+        .wrapper:hover .box4
+        {
+            animation:division-ur 1800ms ease-in-out infinite;
+        }
+        .wrapper:hover .box5
+        {
+            animation:division-d 1400ms linear infinite;
+        }
+        .wrapper:hover .box6
+        {
+            animation:division-r 1000ms ease infinite;
+        }
+        .wrapper:hover .box7
+        {
+            animation:division-dr 1800ms ease infinite;
+        }
+       
+        
+        /*.box1:hover*/
+        /*{*/
+        /*    animation:division-ul 1s ease;*/
+        /*}*/
+        /*.box2:hover*/
+        /*{*/
+        /*    animation:division-l 1s ease;*/
+        /*}*/
+        /*.box3:hover*/
+        /*{*/
+        /*    animation:division-dl 1s ease;*/
+        /*}*/
+        /*.box4:hover*/
+        /*{*/
+        /*    animation:division-ur 1s ease;*/
+        /*}*/
+        /*.box5:hover*/
+        /*{*/
+        /*    animation:division-d 1s ease;*/
+        /*}*/
+        /*.box6:hover*/
+        /*{*/
+        /*    animation:division-r 1s ease;*/
+        /*}*/
+        /*.box7:hover*/
+        /*{*/
+        /*    animation:division-dr 1s ease;*/
+        /*}*/
+        
+        /*animation*/
+        @keyframes division-dr {
+            
+            to {bottom:-100px; right:-100px; transform:rotateX(40deg) skew(-110deg,240deg) scale(0.5,0.5) scaleZ(1.2);}
+        }
+        @keyframes division-dl {
+            
+            to {bottom:-100px; left:-100px; transform:rotateY(-40deg) skew(10deg,240deg) scale(1.5,1.5) scaleZ(2);}
+        }
+        @keyframes division-ur {
+            
+            to {top : -100px ;right:-100px; transform:rotateZ(340deg) skew(-00deg,340deg) scale(0.5,0.5) scaleZ(0.2);}
+        }
+        @keyframes division-ul {
+            
+            to {left:-100px; top : -100px; transform:rotateX(-240deg) skew(170deg,40deg) scale(3.5,3.5) scaleZ(3);}
+        }
+        @keyframes division-l {
+            
+            to {left:-100px; transform:rotateY(140deg) skew(-20deg,240deg) scale(1,1) scaleZ(2);}
+        }
+        @keyframes division-r {
+            
+            to {right:-100px; transform:rotateZ(-340deg) skew(110deg,40deg) scale(1.5,1.5) scaleZ(2);}
+        }
+        @keyframes division-d {
+            
+            to {bottom:-100px; transform:rotate(140deg) skew(-150deg,140deg) scale(0.5,0.5) scaleZ(0.5);}
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <div class="box3"></div>
+        <div class="box4"></div>
+        <div class="box5"></div>
+        <div class="box6"></div>
+        <div class="box7"></div>
+    </div>
+</body>
+</html>

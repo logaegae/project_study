@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Close</title>
+    <style type="text/css">
+        .box
+        {
+            width: 200px;
+            height: 200px;
+            background-color: #000;
+            margin:50px auto;
+            position:relative;
+        }
+        .box a
+        {
+            position: absolute;
+            width:90%;
+            height:8px;
+            left:5%;
+            background-color: #FFF;
+        }
+        .box a:first-child
+        {
+            top:25%;
+            margin-top:-4px;
+            transition:1s;
+            z-index:1;
+        }
+        .box a:first-child+a
+        {
+            top:50%;
+            margin-top:-4px;
+            transition:1s;
+        }
+        .box a:first-child+a+a
+        {
+            top:75%;
+            margin-top:-4px;
+            transition:1s;
+            z-index:1;
+        }
+        
+        
+        .box:hover a:first-child
+        {
+            
+            transform:rotate(45deg) translate(21px,21px);
+            transform-origin: 40px 50%;
+            
+        }
+        .box:hover a:first-child+a+a
+        {
+            transform:rotate(-45deg) translate(21px,21px);
+            transform-origin: 40px 50%;
+        }
+        .box:hover a:first-child+a
+        {
+            background-color:#000;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+    </div>
+</body>
+</html>

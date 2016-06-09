@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>video</title>
+    <style type="text/css">
+        *{margin:0; padding:0;}
+        body,html{height:100%;}
+        
+        h2{font-size:31px;}
+        p{font-size:13px;}
+        
+        .vacant
+        {
+            height:100%; 
+            position:relative; 
+            z-index:1;
+           
+        }
+        /*page1*/
+        .pg1 video
+        {
+            position:fixed;
+            min-width:1920px;
+            z-index:-1;
+        }
+        .video1
+        {
+            position:fixed; 
+            top:50%; 
+            left:50%; 
+            margin-top:-600px; 
+            margin-left:-1450px; 
+            
+        }
+        .page1
+        {
+            height:100% ; 
+            position:relative; 
+            overflow:hidden;
+            
+        }
+        .dptable
+        {
+            display:table; 
+            position:fixed; 
+            width:100%; 
+            height:100%; 
+            border:1px #F00 solid;
+            z-index: 10;
+            
+        }
+        .dptable2
+        {
+            display:table; 
+            position:absolute; 
+            width:100%; 
+            height:100%; 
+            border:1px #F00 solid;
+            z-index:21;
+            
+        }
+        .dptable_cell
+        {
+            display:table-cell; 
+            text-align:center; 
+            vertical-align:middle; 
+            color:white;
+            width:100px;
+        }        
+        .dptable_cell2
+        {
+            display:table-cell; 
+            text-align:center; 
+            vertical-align:middle; 
+            color:white;
+        }
+        .dptable_cell div 
+        {
+            border:1px #FFF solid; 
+            display:inline-block;
+            padding:20px; 
+            margin-bottom:100px;
+            width:500px;
+            height:90px;
+            
+        }
+        .dptable_cell2 div 
+        {
+            border:1px #FFF solid; 
+            display:inline-block;
+            padding:20px; 
+            margin-bottom:100px;
+            width:500px;
+            height:90px;
+        }
+        /*page2*/
+        .page2
+        {
+            height:100%; 
+            position:relative; 
+            z-index:1;
+            overflow:hidden;
+            background-size: cover; 
+            
+            background-image: url(../images/b5.jpg); 
+            
+        }
+        /*page3*/
+        .page3
+        {
+            height:100%; 
+            position:relative; 
+            z-index:1;
+            overflow:hidden;
+            background-size: cover; 
+            
+            background-image: url(../images/b4.jpg); 
+        }
+        /*page4*/
+        .page4
+        {
+            height:100%; 
+            position:relative; 
+            z-index:1;
+            overflow:hidden;
+            background-size: cover; 
+            
+            background-image: url(../images/b2.jpg); 
+            
+        }
+        /*page5*/
+        .page5
+        {
+            height:100%; 
+            position:relative; 
+            z-index:1;
+            overflow:hidden;
+            background-size: cover; 
+            
+            background-image: url(../images/b1.jpg); 
+        }
+        /*page6*/
+        .page6
+        {
+            height:100%; 
+            position:relative; 
+            z-index:1;
+            overflow:hidden;
+            background-size: cover; 
+          
+            background-image: url(../images/b3.jpg); 
+        }
+    
+        .pg7 video
+        {
+            position:fixed;
+            min-width:1920px;
+            z-index:20;
+        }
+        .video2
+        {
+            position:fixed; 
+            top:50%; 
+            left:50%; 
+            margin-top:-600px; 
+            margin-left:-1450px; 
+            
+        }
+        .page7
+        {
+            height:100% ; 
+            position:relative; 
+            overflow:hidden;
+            z-index:20;
+        }
+ 
+    </style>
+</head>
+<body>
+    <div class="dptable">
+            <div class="dptable_cell">
+                <div>
+                <h2>3D Simulations of Black Hole</h2>
+                <br/>
+                <p>
+                    NASA just saw something come out of a black hole for the first time ever
+                </p>
+                </div>
+            </div>
+    </div>
+
+    <div class="page1"> 
+        <div class="video1">
+        <video style="border" width="150%" autoplay loop>
+            <source src="../mov/블랙홀 패턴.mp4">
+        </video>
+        </div>
+    </div>   
+    
+    <div class="page2">
+    
+    </div>
+    <div class="vacant">
+        
+    </div>
+    <div class="page3">
+            
+    </div>
+    <div class="vacant">
+        
+    </div>    
+    <div class="page4">
+
+    </div>
+    <div class="vacant">
+        
+    </div>    
+    <div class="page5">
+            
+    </div>
+    <div class="vacant">
+        
+    </div>    
+    <div class="page6">
+
+    </div>
+    <div class="vacant">
+        
+    </div>   
+        <div class="dptable2">
+                <div class="dptable_cell2">
+                    <div>
+                    <h2>See Outside of Our World</h2>
+                    <br/>
+                    <p>
+                        It Always Beyond Our Imagination
+                    </p>
+                    </div>
+                </div>
+            </div>    
+        <div class="page7">
+            <div class="video2">
+                <video style="border" width="150%" autoplay loop>
+                    <source src="../mov/506401058.mp4">
+                </video>
+            </div>
+                
+            
+            
+        </div>
+
+    
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+    <style type="text/css">
+    .box{    
+            width: 100px;
+            height: 100px;
+            background-color:#00F;
+            border : 1px #F00 solid;
+        }    
+            @-webkit-keyframes rightmovement {
+                from { margin:0; }
+                to { margin-left:100px; }
+            }
+            @-o-keyframes rightmovement {
+                from { margin:0; }
+                to { margin-left:100px; }
+            }
+            @-moz-keyframes rightmovement {
+                from { margin:0; }
+                to { margin-left:100px; }
+            }
+            @keyframes rightmovement {
+                from { margin:0; }
+                to { margin-left:100px; }
+            }
+        
+    .box:hover
+    {
+        animation:rightmovement 5s;
+    }
+    </style>
+<body>
+    <div class="box">
+        
+    </div>
+</body>
+</html>
+
+
