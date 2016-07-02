@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <table border="1" width="100%" summary="detail"> <!--여기 summary는 화면표시안됨-->
+
+                <caption>title</caption> <!--table에 caption은 필수-->
+                <summary>datail</summary>
+                <colgroup> <!-- 여기서 넓이 등 조정, <td width= >로 조절-->
+                    <col width="100" />
+                    <col/>
+                    <col width="100" />
+                    <col/>
+                </colgroup>
+
+            <thead> <!--헤드라인, 두꺼워지면서 가운데로 감, 웹표준 스타일-->
+                <tr> <!--tr은 행, td는 열, tr 다음에 td)-->
+                    <th colspan="4" scope="colgroup" id="f1">text</th> <!-- colgroup방향으로 읽는다, span한 행일 경우 scope 은 그룹으로 지정한다-->
+                </tr>
+                <tr>
+                    <th scope="col" colspan="2" >head</th> <!--head는 th에 주의, scope은 th에만 써서 리더기가 읽은 방향설정, row/col 방향 colspan은 몇개의 영역을 담당하는지 설정-->
+
+                    <th scope="col" colspan="2" >head</th>
+
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <th low="2" id="a12">body</th> <!--th에 id를 잡아준다-->
+                    <td rowspan = "2">body</td>
+                    <td>body</td>
+                    <td>body</td>
+
+
+                </tr>
+                <tr>
+
+                    <th>body</th>
+                    <td>body</td>
+                    <td>body</td>
+                </tr>
+            </tbody>
+
+            <tfoot> <!-- 어느위치에 써도 항상 표 밑, 프로그램(리딩기 등)이 마지막이라고 인식-->
+                <tr>
+                    <th>foot</th>
+                    <td header="a12">foot</td> <!--header를 쓰면 읽어주는 순서를 정할 수 있음-->
+                    <td>foot</td>
+                    <td>foot</td>
+                </tr>
+            </tfoot>
+            <tbody>
+                <tr>
+                    <th>body</th>
+                    <td>body</td>
+                    <td>body</td>
+                    <td>body</td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

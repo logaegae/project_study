@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .box
+        {
+            border:1px solid; height: 500px;
+            background-image: url(../images/1.jpg);
+            background-repeat:  no-repeat;
+            /*no-repeat, repeat, repeat -x, repeat -y, round, space*/
+            background-position: 50% 40% ;
+            /* right, bottom, left, top, center, 50%(가운데), 100px 40px(x값, y값), center bottom 20px(중간 바닥에서 20px위로) */
+            background-size: contaim;
+            /*px, % 가능, cover는 짧은쪽에 맞춰서, contain은 긴쪽만 맞춰서*/
+            background-attachment: fixed;
+            /*스크롤을 움직여도 이미지는 그대로 */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+
+    </div>
+    <!-- background
+    background-image
+    background-color
+    background-position
+    background-repeat
+    background-size
+    background-attachment -->
+</body>
+</html>

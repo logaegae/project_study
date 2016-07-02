@@ -50,6 +50,7 @@
         .wrapper .header .nav ul
         {
             font-size:0;
+            
         }
         .wrapper .header .nav ul li
         {
@@ -458,16 +459,17 @@
                 height:55px;
                 line-height:55px;
                 width: 200px;
-                
+                cursor : pointer;
             }
             .wrapper .header .nav ul
             {
                 
                 
-                background-color:rgba(255,255,255,0.8);
+                background-color:rgba(255,255,255,0.9);
                 position:absolute;
                 right:0;
                 display:none;
+                z-index:1;
             }
             .wrapper .header
             {
@@ -488,32 +490,28 @@
                 
           
             
+            /*메뉴버튼*/
             
-            /*임시*/
-            
-            .wrapper .header .nav button:hover+ul
+            .wrapper .header .nav ul
             {
-                display:list-item;
-                width: 200px;
-            }
-            
-            .wrapper .header .nav ul li a{
-                line-height:40px;
-                width:200px;
-            
-            }
-            .wrapper .header .nav ul:hover
-            {
-                display: list-item;
+                
                 width: 200px;
                 overflow:hidden;
             }
+            .wrapper .header .nav ul li a
+            {
+                
+                width: 200px;
+                line-height:40px;
+            }
+            
+            
             .wrapper .header .nav ul li a:hover
             {
                 border-left:3px #ffb0b0 solid;
                 border-top:0px;
             }
-            
+            /*임시*/
             section {display:block; height:100%; padding-top:35px; width:100%; position:relative;}    
             
             section .sect-title {
@@ -552,6 +550,39 @@
             }
         }
     </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            
+            $('.nav > button').click(function(){
+                
+                
+                if(!$('.nav > ul').is('.on')) $('.nav > ul').addClass('on').fadeIn(400).slideDown(800);
+                else $('.nav > ul').removeClass('on').fadeOut(400).slideUp(800);
+                
+                // $('.nav > ul').slideToggle(1000);
+                
+            })
+            var aa = true;
+            $(window).resize(function(){
+                
+                if ( $(window).width() > 768 && aa){
+                    $('.nav > ul').css('display','inline-block')
+                    aa = false;
+                    
+                }
+                else if( $(window).width() < 768 && !aa){
+                    $('.nav > ul').css('display','none')
+                    aa = true;
+                    
+                }
+                
+            })
+            
+           
+            
+        })
+    </script>
 </head>
     
 <body>
