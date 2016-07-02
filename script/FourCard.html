@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    
+    <script type="text/javascript">
+                
+                var kind = ["♠","♥","♣","◆"];
+                var card = [];
+                var user = [];
+                con = 0;
+                
+                //카드정리
+                function reset() {
+                    
+                    card = [];
+                    user = [];
+                    
+                    
+                    for (var i=0 in kind){
+                        
+                        var j=1;
+                        while(j<14){
+                            
+                            switch (j){
+                                
+                                case 1 : card.push(kind[i]+"A"); break;
+                            
+                                case 11 : card.push(kind[i]+"J"); break;
+                                
+                                case 12 : card.push(kind[i]+"Q"); break;
+                                
+                                case 13 : card.push(kind[i]+"K"); break;
+                                
+                                default : card.push(kind[i]+j); break;
+                            }
+                            
+                            j++;
+                            
+                            
+                        }
+                    }
+                    console.log(card);
+                 
+                    
+                }
+                
+                //카드 세장 나눠주기
+                function start(){
+                    
+                    con = 1;
+                    
+                    if(user.length >= 3 ) {
+                        
+                        alert('넌 이미 카드를 받았다');
+                    
+                        
+                    }
+                    else{
+                        
+                        if (card.length != 0){
+                        
+                            var i = 0;
+                            while( i < 3 ){
+                                
+                                addcard();
+                                i++;
+                            
+                            }
+                            
+                        console.log(" 내 카드 : "+user);
+                        
+                        }else{
+                            alert('시방 뽑을 카드가 없는데 뭘 뽑으라는겨..');
+                        }
+                    }
+                    
+                    
+                }
+                 
+                //카드나눠주기
+                function addcard() {
+            
+                        if ( card.length != 0 && con == 1) {
+                            
+                           
+                            x = Math.floor(Math.random() * card.length);
+                            
+                            user.push(card[x]);
+                            console.log(' 뽑은 카드 : '+card[x]);
+                            card.splice(x,1);
+                            
+                            
+                           
+                            var x = null;
+                        
+                        }else{
+                            alert('카드를 먼저 받아');
+                        }
+                        if ( user.length > 3 ){
+                             console.log(" 내 카드 : "+user);
+                        }
+                    
+                }
+              
+                //die
+                
+                function die(){
+                     if (user.length >= 3 ) {
+                         
+                         card = [];
+                         user = [];
+                         con = 0;
+                        
+                        alert('죽었다~');
+                     }else{
+                            alert('시작도 안했는데 죽냐');
+                        }
+                }
+                
+                    
+    </script>
+    
+    <style type="text/css">
+    @import url(https://fonts.googleapis.com/earlyaccess/hanna.css);
+    
+        html{
+            padding : 0;
+        }
+        body{
+            background-image: url('../images/card.jpg');
+            background-repeat: no-repeat;
+            position:absolute;
+            top:0;
+            bottom:0;
+            left:0;
+            right:0;
+        }
+        h1{
+            font-size:34px;
+        }
+        h2{
+            font-size:28px;
+        }
+        h3{
+            font-size:20px;
+        }
+        .wrapper{
+            padding-top:20px;
+            text-align:center;
+            font-family: 'Hanna', sans-serif;
+            letter-spacing: 5px;
+            color: #333;
+            background: #FFF;
+            width:70%;
+            height: 600px;
+            margin: 20px auto;
+            max-width: 900px;
+            min-width:500px;
+            
+        }
+        button{
+            display:inline-block;
+            width: 200px;
+            height: 30px;
+            background-color: #AAA;
+            color:#FFF;
+            border-radius: 10px;
+            margin-top:10px;
+        }
+        .title{
+            margin:10px auto;
+            width:80%;
+            display:inline-block;
+            border: 2px #333 solid;
+        }
+        .buttons{
+            
+        }
+        .my_card{
+            width:50%;
+            border: 2px #333 solid;
+            margin:10px auto;
+            height:150px;
+            margin-top:10px;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class = "wrapper">
+        <div class="title">
+            <h1>포카게임</h1>
+            <h2>인생은 한방!</h2>
+            <h3>허튼수작하면 손모가지 날라가분께...</h2>
+        </div>
+        <div class="buttons">
+            <button onclick="reset();">카드정리</button></br>
+            <button onclick="start();">카드나눠주기</button></br>
+            <button onclick="addcard();">콜</button></br>
+            <button onclick="die();">다이</button>
+            
+        </div>
+        <div class="my_card">
+           
+            
+        </div>
+    </div>
+</body>
+</html>

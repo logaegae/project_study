@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Script 연습</title>
+    <script type="text/javascript">
+    
+        var name = prompt ("신님, 누구를 만드시겠습니까?");
+        
+        var text1 = ["음...","우선...","먼저...","어디한번","일단..."];
+        var text2 = ["드립력","잉여력","상남자","단호박","외모","호구"];
+        var text3 = ["아... 그냥 만들지 말까?","한숟갈","조그...ㅁ...헉..슈발...","흐ㅏㅎ어하","한방울"];
+        
+        var ran1 = Math.floor(Math.random()*text1.length);
+        var ran2 = Math.floor(Math.random()*text2.length);
+        var ran3 = Math.floor(Math.random()*text3.length);
+        
+        // var idx = 0;
+        // var ss = setInterval(function(){
+        //     idx++
+            
+        //     if(idx=text1.length){
+        //         idx=0;
+        //     }
+        // },100);
+        
+        document.write(name + "을 만들어볼까?"+text1[ran1]+".... "+text2[ran2]+" "+text3[ran3]);
+        
+        
+    </script>
+    
+    
+</head>
+<body>
+    
+</body>
+</html>

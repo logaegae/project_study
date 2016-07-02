@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript">
+        
+        var member = [];
+        var avg;
+        
+        
+        
+        function adduser(){
+            
+            var user = (Number(prompt("사용자 수를 입력하세요")));
+            var i = 0;
+            while(i < user){
+            
+                member.push(Number(prompt("사용자 점수를 입력하세요")));
+                
+                console.log(member);
+                
+                i++;
+            }
+            avg = avg(member);
+        }
+        
+        
+        function avg(x){
+            
+            x.push(0);
+            var i = 0;
+            
+            
+            while (i < x.length - 1){
+                x[x.length - 1] += x[i];
+                i++;
+            }
+            
+            console.log(x);
+            
+            return x[x.length - 1] / (x.length - 1);
+            
+        }   
+      
+        
+    </script>
+    
+</head>
+<body>
+    <button onclick="adduser();">점수입력</button>
+    <button onclick="alert(avg);">평균</button>
+    
+</body>
+</html>

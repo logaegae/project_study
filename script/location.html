@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" >
+    
+    
+        var url = "http://www.candyglow.co.kr/shop/shopbrand.html?xcode=015&type=Y"
+        
+        
+        // var url = window.location.href;
+        var urlcut = url.split("=");
+        console.log(urlcut);
+        var urlcut = urlcut[1].split("&");
+        console.log(urlcut);
+        
+        // var floorNum = Math.floor(urlcut[0]);
+        // console.log(floorNum);
+        
+        var splice = urlcut[0].substring(1,3);
+        console.log(splice);
+        
+        
+        // function location(){
+        //     location.href = "http://www.naver.com";
+        // }
+        
+        
+    </script>
+</head>
+<body>
+    <button onclick= "location();">네이버</button>
+</body>
+</html>

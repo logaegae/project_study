@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    
+    <script type="text/javascript">
+        
+        
+        var item = ["가위","바위","보"];
+        
+        
+        function start(){
+            
+            var select = null;
+            var input;
+            var input_sel;
+            var random = Math.floor(Math.random() * 100);
+            
+        /*확률*/    
+            if(random >= 0 && random < 50){
+                
+                select = 0;
+                
+            }else if(random >= 51 && random < 80){
+                
+                select = 1;
+                
+            }else{
+                
+                select = 2;
+            }
+            
+            
+            
+            
+            console.log(random);
+            console.log(select);
+            console.log(item[select]);
+        
+            
+            
+        /*상수화*/    
+            var input = prompt("가위? 바위? 보?");
+            
+            if(input == item[0]){
+                input_sel=0;
+            }else if(input == item[1]){
+                input_sel=1;
+            }else if(input == item[2]){
+                input_sel=2;
+            }else{
+                alert("넌 뭘 쓴거냐");
+            }
+            
+            
+            
+            console.log(input_sel);
+            
+            
+        /*비교연산*/    
+            if(input_sel == select){
+             
+                alert('나도 '+item[select]+' 너도 '+item[input_sel]+'...  비겼네...');
+                
+            }else if( (input_sel + 1)%3 == (select)%3){
+             
+                alert('나는 '+item[select]+' 너는 '+item[input_sel]+'  내가 이겼다ㅋㅋ');
+               
+                
+            }else if ( (input_sel + 1)%3 != (select)%3){
+            
+                alert('나는 '+item[select]+' 너는 '+item[input_sel]+'...  내가 졌네..');
+                
+            }
+            
+        }
+    </script>
+
+</head>
+
+<body>
+        <button onclick="start();">가위~바위~보!</button>
+</body>
+</html>

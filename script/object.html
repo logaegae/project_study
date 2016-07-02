@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" >
+        
+        var car = {
+            
+            name : 'nxfds',
+            brand : 'fiat',
+            size : ['s','m','l'],
+            color : ['red','white','black'],
+            
+            fill: function(){
+                alert("name : "+this.name+"name : "+this.brand+"size : "+this.size[0]);
+            },
+            
+            parts : { 
+                wheel : 'chrome',
+                body : 'steel',
+                seat : 'lather'
+                
+            }
+        }
+        
+        console.log("wheel : "+car.parts.wheel+"body : "+car.parts.body+"seat : "+car.parts.seat);
+        car.fill();
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

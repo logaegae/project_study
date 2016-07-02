@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" >
+       
+        var days =['일','월','화','수','목','금','토'];
+       
+       
+        function play(){
+        
+        var times = new Date();
+        var date = times.getDate();
+        var day = times.getDay();
+        var year = times.getFullYear(); 
+        // getYear() + 1900;
+        var hours = times.getHours();
+        var month = times.getMonth()+1;
+        // month가 0부터 시작함
+        var minutes = times.getMinutes();
+        var seconds = times.getSeconds();
+        
+        
+        document.getElementById('time').innerHTML = date+"일 "+ days[day] + year +"년"+ month+"월" +hours+"시" + minutes +"분" + seconds+"초" 
+        
+        console.log(year+"년" + month + "월" + date + "일 "  + days[day]+ "요일  "+ hours+":"+minutes+":"+seconds);
+        
+        
+        }
+        setInterval(play,1000);
+        
+    </script>
+</head>
+<body>
+    <div id="time"></div>
+</body>
+</html>

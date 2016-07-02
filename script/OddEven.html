@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+    
+    var int = Math.floor(Math.random()*10);
+    var num;
+    
+        
+        if(int%2 == 0){
+            
+            num = "짝";
+            
+        }else{
+            
+            num = "홀";
+        }
+    
+    console.log(int+'  //  '+num);
+    
+    var value = prompt('홀? 아니면 짝?');
+    
+    if(value == num )
+    {
+        alert('정답이네요~! 좋겠다');
+        
+    }else if(value == "홀" || value == "짝"){
+        
+        alert('아닌디?');
+        
+    }else{
+        
+        alert('올바른 값을 입력하지 않아서 알아들을 수 없으니 꺼져요...');
+        
+    }
+    
+    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

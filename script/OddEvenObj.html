@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    
+    <script type="text/javascript">
+        
+        // 컴퓨터가 숫자뽑고
+        // 내가 홀/짝 말하면
+        // 정답?!
+        
+        
+        //컴퓨터 난수
+        var gameVar = {
+            
+            ran_num : null,
+            
+            ran : function() {
+                        this.ran_num =  Math.floor(Math.random()*10);
+                        
+                     },
+                    
+            
+            oddEven : function() {
+                        
+                        switch(this.ran_num % 2){
+                          
+                            case 0 : return "짝"; break;
+                         
+                            default : return "홀"; break;
+                            
+                        }
+                    
+                    }
+                    
+                              
+        }    
+        
+        //실행버튼
+        
+        var exe = {
+            
+            active : function(answer) {
+            
+                    
+                    if (answer == gameVar.oddEven()){
+                     
+                        alert('정답입니다');
+                    
+                        
+                    }else if (answer == "홀" || answer == "짝"){
+                     
+                        alert('아님')
+                    
+                        
+                    }else{
+                        alert('뭐라한건지 알 수가 없네...');
+                    }
+                  
+            }
+        }
+        
+        
+        
+        //힌트
+        
+        var prob = {
+            
+            int : 0,
+            
+            aa : Math.floor(Math.random()*100),
+            xx : Math.floor(Math.random()*100),
+            
+            com_ans : "",
+            
+            
+            hint : function() {
+                
+               if (this.xx <= this.aa) {
+                    
+                    this.com_ans = gameVar.oddEven();
+                    
+                }else{
+                   
+                    if(gameVar.oddEven() == "홀"){
+                        
+                    this.com_ans = "짝"
+                    
+                    }else{
+                        
+                    this.com_ans = "홀"
+                    
+                    }
+                }
+                
+                switch (this.int) {
+                    
+                    case 0 : alert(this.aa+"%의 확률로 "+this.com_ans+" 입니다."); break;
+                    case 1 : alert('힌트는 한번더줄까~'); break;
+                    case 2 : alert('싫은데?'); break;
+                    default : alert('힌트는 한번만~'); break;
+                    
+                    }
+                    
+                     this.int++
+                     
+            }
+        }    
+        
+        
+    gameVar.ran(); 
+    //gameVar.oddEven();
+    
+    console.log("컴퓨터가 생각한 수 : "+gameVar.ran_num);                
+        
+        
+    </script>
+</head>
+<body>
+    <button onclick="exe.active(prompt('홀 아니면 짝?'));">시작하기</button>
+    
+    <button onclick="prob.hint();"> 힌트</button>
+</body>
+</html>

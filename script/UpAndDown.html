@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript">
+        
+        var coin = 7;
+        var x = Math.floor(Math.random()*100);
+        
+        for(i=0; i< coin ; i++)
+        {
+            var value = prompt("업? & 다운?")
+            
+            if(value > x)
+            {
+                alert("업");
+            }
+            else if(value < x)
+            {
+                alert("다운");
+            }
+            else{
+                alert("정답");
+                break;
+            }
+            
+            if(i == coin - 1)
+            {
+                alert("다음기회에...")
+             }
+        }
+        
+        
+    </script>
+    
+</head>
+<body>
+    
+</body>
+</html>

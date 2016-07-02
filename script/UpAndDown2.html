@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript">
+        
+        var x= Math.floor(Math.random() * 100);
+        var up = 100;
+        var down = 0;
+        var guess =[];
+        
+        // x = 10
+        
+        guess.push(prompt('1~100 중에 한번 맞춰봐'));
+        // guess=["50"]
+        
+        for( var i=0; i < 5; i++) {
+            
+            if(guess[i] == x){
+                alert('정답~!');
+                break;
+            }
+            
+            if(i == 4){
+                alert('꺼지세요');
+                break;
+            }
+            
+            if(guess[i] > x){
+                alert('그거보다 작은데?')
+                if(guess.length == 1){
+                    guess.push(prompt(guess[i]+'보다 작은 수 불러봐'));
+                    up = guess[i];
+                    
+                }
+                else{
+                    guess.push(prompt(down+'보다 크고'+guess[i]+'보다 작지'));
+                    up = guess[i];
+                }
+            }
+            else {
+                alert('그거보다 큰데?')
+                if(guess.length == 1){
+                     guess.push(prompt(guess[i]+'보다 큰 수 불러봐'));
+                     down = guess[i];
+                 }
+                 else{
+                     guess.push(prompt(guess[i]+'보다 크고'+up+'보다 작지'));
+                     down = guess[i];
+                 }
+            }
+            
+          
+            
+                
+        }
+        
+        
+    </script>
+    
+</head>
+<body>
+    
+</body>
+</html>
