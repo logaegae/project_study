@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        button.open{
+            width: 50px;
+            height: 50px;
+            background-color: tomato;
+            border: 2px skyblue solid;
+            color:white;
+            font-weight:bold;
+            letter-spacing: 3px;
+        }
+        
+        .pop1{width: 400px; height: 600px; display:none;}
+        .pop2{width: 300px; height: 500px; display:none;}
+        .pop3{width: 400px; height: 700px; display:none;}
+        .pop4{width: 200px; height: 600px; display:none;}
+        .pop5{width: 400px; height: 400px; display:none;}
+        
+        .popUp.pop1 .wrap{text-align:center; font-size:30px; color:#F00}
+        .popUp.pop2 .wrap{text-align:center; font-size:30px; color:#0F0}
+        .popUp.pop3 .wrap{text-align:center; font-size:30px; color:#00F}
+        .popUp.pop4 .wrap{text-align:center; font-size:30px; color:#FF0}
+        .popUp.pop5 .wrap{text-align:center; font-size:30px; color:#F0F}
+    </style>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(function(){
+        
+        
+        function openPopUp() {
+            
+            var id = $(this).attr('id');
+            
+            
+            makeBlind();
+            makePopUp(id);
+        }
+            function makeBlind(){
+                
+                var bl_tag = '';
+                bl_tag += '<div class="blind">';
+                bl_tag += '</div>';
+                
+                $('body').append(bl_tag);
+                $('.blind').css({
+                    position:'absolute',
+                    left:0,
+                    right:0,
+                    top:0,
+                    bottom:0,
+                    backgroundColor: '#000',
+                    display:'none'
+                });
+                $('.blind').fadeTo(1000,0.8);
+            }
+            function makePopUp(id){
+                
+                var contents = $('.'+id).html();
+                var pop_tag='';
+                
+                pop_tag += '<div class="popUp '+id+'">';
+                pop_tag += '<button class="close">닫아</button>';
+                pop_tag += '<div class ="content">';
+                pop_tag += contents;
+                pop_tag += '</div></div>';
+                
+                $('body').append(pop_tag);
+                $('.popUp').css({
+                    width: '500px',
+                    height: '500px',
+                    backgroundColor: '#FFF',
+                    display:'none'
+                });
+                
+                center($('.'+id));
+                
+                $('.popUp').show(1000);
+                
+            }
+                function center(target){
+                    target.css({
+                        position:'absolute',
+                        left:'50%',
+                        top:'50%',
+                        marginLeft: -(parseInt(target.css('width')) / 2)+'px',
+                        marginTop: -(parseInt(target.css('height')) / 2)+'px'
+                    })
+                }
+            function closeFn(){
+                $('.blind').fadeOut(1000,$('.blind').remove());
+                $('.popUp').fadeOut(1000,$('.popUp').remove());
+            }
+            
+        $('.open').click(openPopUp);
+        
+       
+        $('body').on('click','.close',closeFn)
+    
+    });    
+    </script>
+    
+</head>
+<body>
+    
+    <button class = "open" id="pop1">열려</button>
+    <button class = "open" id="pop2">열려</button>
+    <button class = "open" id="pop3">열려</button>
+    <button class = "open" id="pop4">열려</button>
+    <button class = "open" id="pop5">열려</button>
+    
+    
+    <div class="pop1">
+        <div class="wrap">001</div>
+        <button>확인</button>
+    </div>
+    <div class="pop2">
+        <div class="wrap">002</div>
+        <button>확인</button>
+    </div>
+    <div class="pop3">
+        <div class="wrap">003</div>
+        <button>확인</button>
+    </div>
+    <div class="pop4">
+        <div class="wrap">004</div>
+        <button>확인</button>
+    </div>
+    <div class="pop5">
+        <div class="wrap">005</div>
+        <button>확인</button>
+    </div>
+   
+</body>
+</html>

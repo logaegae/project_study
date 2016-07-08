@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    
+</head>
+    <style>
+        
+        *{margin:0;padding:0;}
+        html,body{height: 100%;}
+        ul,ol{list-style:none;}
+        .fly { border : 1px #000 solid; width:100px; height:200px;position:fixed; right:10px; text-align:center; background: #FFF;}
+        .fly li{margin-top:15px;}
+        .fly a{font-size:20px; text-decoration: none; color:#000;}
+        
+        section, section>div { height:100%; border:1px #F00 solid;-webkit-background-size: cover;
+        background-size: cover;}
+        section div:nth-child(1){background: #111;}
+        section div:nth-child(2){background: #333;}
+        section div:nth-child(3){background: #555;}
+        section div:nth-child(4){background: #777;}
+    </style>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript">
+        
+        $(function(){
+            
+           $('section>div').each(function(i,e){
+                
+                $(this).attr({id:'page'+i})
+                
+            })
+            
+        
+            $('.fly li ').click(function(){
+                var idx = $(this).index() 
+                $('body, html').animate({
+                    
+                    // 1st
+                    // scrollTop : $('section div').eq(idx).offset().top
+                    scrollTop : $('#page'+idx).offset().top
+                })
+                
+            })
+            
+        })
+        
+    
+        
+    </script>
+<body>
+    <aside class="fly">
+        <ul>
+            <li><a  href="javascript:void(0)">text</a></li>
+            <li><a  href="javascript:void(0)">text</a></li>
+            <li><a  href="javascript:void(0)">text</a></li>
+            <li><a  href="javascript:void(0)">text</a></li>
+        </ul>
+    </aside>
+    <section>
+        <div ></div>
+        <div ></div>
+        <div ></div>
+        <div ></div>
+    </section>
+</body>
+</html>

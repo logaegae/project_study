@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<script>
+    
+    //결과값
+    var adress = []; 
+    //임시변수
+    var imsi = [];
+    //섞을배열갯수
+    var length = 5;
+    
+        for(j=0; j<length; j++){
+            imsi.push(j);
+        }
+        for(j=0; j < length; j++){
+            
+            var ran = Math.floor(Math.random() * imsi.length)
+            adress.push(imsi[ran]);
+            imsi.splice(ran,1);
+            console.log(ran);
+        }
+
+        console.log(adress);
+    
+    //집어넣기 과정  
+    
+    imsi = '';
+        for(j=0;j < Math.ceil( length / 2) ; j++){
+            //보존
+            imsi = $('대상경로').eq(j).css('바꿀속성');
+            //교체
+            $('대상경로').eq(j).css({
+                바꿀속성 : $('대상경로').eq(adress[j]).css('바꿀속성')
+            })
+            //보존속성 삽입
+            $('대상경로').eq(adress[j]).css({
+                바꿀속성 : imsi
+            });
+            
+        }    
+        
+</script>
+<body>
+
+</body>
+</html>
