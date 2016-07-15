@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        *{padding: 0;margin: 0;}
+        html,body{height: 100%;}
+        .wrap{
+            height: 100%;
+            width: 100%;
+        }
+        section{
+            height: 100%;
+            width: 100%;
+            background: no-repeat center center;
+            -webkit-background-size: cover;
+            background-size: cover;
+            
+        }
+        section:nth-child(1){
+               background-image: url(../images/S1.jpg);
+        }
+        section:nth-child(2){
+               background-image: url(../images/S2.jpg);
+        }
+        section:nth-child(3){
+               background-image: url(../images/S3.jpg);
+        }
+        section:nth-child(4){
+               background-image: url(../images/S4.jpg);
+        }
+        section:nth-child(5){
+               background-image: url(../images/S5.jpg);
+        }
+        .num1{
+            background-image: url(../images/number1.gif);
+            margin-top:30px;
+            left:600px;
+            
+        }
+        .num2{
+            background-image: url(../images/number2.gif);
+            margin-top:300px;
+            left:150px
+        }
+        .num3{
+            background-image: url(../images/number3.gif);
+            margin-top:500px;
+            left:400px;
+        }
+        section > div {
+            width: 50px;
+            height: 100px;
+            border: 1px #000 solid; 
+            background: no-repeat center center;
+            -webkit-background-size: cover;
+            background-size: cover;
+            position:absolute;
+        }
+        
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript">
+        
+        $(window).load(function(){
+            var spot = [];
+            
+            $('section').each(function(i,e){
+                spot.push($(e).offset().top);
+                $(e).css({
+                    top:spot[i]
+                })
+                
+            });
+            $('section').css({
+                position:'absolute'
+            });
+            $(window).scroll(function(){
+                var sct = $(this).scrollTop();
+                
+                $('section').each(function(i,e){
+                    var aa = spot[i] - sct
+                    
+                    if( sct > spot[i] / 2 ) aa = 6 * spot[i] / 10 - sct * 0.2;
+                    
+                    // position이 absolute 일 때 계산법
+                    // aa의 -sct의 방향과 스크롤 내리는 방향이 반대 방향이므로 속도는 2배가 됨
+                    //스크롤 속도가 2배이므로 spot[i]도달에 필요한 scrollTop은 반이 된다
+                    //스크롤이 spot[i] / 2에 도달했을때 새로운 색션이 시작되고
+                    //속도가 줄어야 하므로 sct * 0.x로 감속한다
+                    // 그러나 -sct의 0.x배를 하면 top값이 변하므로 색션의 연결이 끊어짐
+                    // 0.x를 곱해도 top값이 spot[i] / 2 이 되도록 spot[i]에 적정 상수를 곱함
+                    
+                        $(e).css({
+                            top: aa
+                        });
+                })
+                
+                $('.num1').css({
+                        top: parseInt($('.num1').scrollTop()) + sct*2
+                    })  
+                $('.num2').css({
+                        top: parseInt($('.num1').scrollTop()) + sct*0.5
+                    })    
+                $('.num3').css({
+                        top: parseInt($('.num1').scrollTop()) + sct*1
+                    })    
+                    
+                
+            })
+            
+            
+        })    
+        
+    </script>
+</head>
+<body>
+    <div class="wrap">
+        <section>
+            <div class="num1"></div>
+            <div class="num2"></div>
+            <div class="num3"></div>
+        </section>
+        <section></section>
+        <section></section>
+        <section></section>
+        <section></section>
+    </div>
+</body>
+</html>

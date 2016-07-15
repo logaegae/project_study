@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    
+    <style type="text/css">
+        html,body{height: 100%;}
+        *{margin:0; padding:0;}
+        ul{list-style:none;}
+        .nav{height: 40px; background-color: #000; width:100%; position: fixed; text-align:center;}
+        .nav li {display:inline-block;}
+        
+        .nav a { color:#FFF; text-decoration :none; font-size:20px; line-height:40px;}
+        .section, .section>div {width:100% ; height: 100%;-webkit-background-size: cover;
+        background-size: cover; border:1px #F00 solid;}
+        .nav ul .on { color : #F00;}
+        
+        .section>div:nth-child(1){background:url(../images/beautiful.jpg);}
+        .section>div:nth-child(2){background:url(../images/landscape.jpg);}
+        .section>div:nth-child(3){background:url(../images/sunset.jpg);}
+        .section>div:nth-child(4){background:url(../images/woman.jpg);}
+        .section>div:nth-child(5){background:url(../images/b1.jpg);}
+        
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript">
+        
+        $(function(){
+           
+           $('nav a').click(function(){
+               
+               var aa  = location.hash;
+               
+               $('body,html').animate({
+                   
+                   scrollTop:$(aa).offset().top
+                   
+               })
+               
+               return false;
+           })
+           
+        })
+            
+        
+    </script>
+</head>
+<body>
+    <div class="nav">
+        <ul>
+            <li class = "on"><a href="#page1" >text</a></li>
+            <li><a href="#page2">text</a></li>
+            <li><a href="#page3">text</a></li>
+            <li><a href="#page4">text</a></li>
+            <li><a href="#page5">text</a></li>
+     
+        </ul>
+    </div>
+    <div class="section">
+        <div id="page1"></div>
+        <div id="page2"></div>
+        <div id="page3"></div>
+        <div id="page4"></div>
+        <div id="page5"></div>
+    </div>
+</body>
+</html>

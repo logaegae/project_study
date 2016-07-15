@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <style>
+*{margin:0; padding:0;}
+ul{list-style:none}
+.slide{width:500px; height:300px; border:1px #000 solid; position:relative; margin:0 auto; overflow:hidden;}
+.slide button{position:absolute; top:50%; z-index:1;}
+.slide button.next{right:0px;}
+.slide button.prev{left:0px;}
+.slide ul{text-align:center;}
+.slide li{display:inline-block;}
+.slide li a{display:block; width: 20px; height:20px; position:relative; z-index: 1; border:1px #000 solid;  color:#000; top:280px; text-decoration:none; background-color: #FFF;}
+.slide li img{width:100%; position:absolute; left:0; top:0; display:none;}
+.slide li:first-child img{display:block;}
+.slide li.on a{background-color:#000; color:#FFF; text-decoration:none;}
+</style>
+<script type="text/javascript">
+    $(function(){          
+     
+        var idxarr = [];
+        
+        $('body .slide').each(function(){
+            idxarr.push(0);
+        })
+        
+    //랜덤 시작
+    
+    for(i=0;i<idxarr.length;i++){
+        
+    
+        //결과값
+        var adress = []; 
+        //임시변수
+        var imsi = [];
+        //섞을배열갯수
+        var leng = $('.slide').eq(i).find('li').length;
+        
+            for(j=0; j<leng; j++){
+                imsi.push(j);
+            }
+            for(j=0; j < leng; j++){
+                
+                var ran = Math.floor(Math.random() * imsi.length)
+                adress.push(imsi[ran]);
+                imsi.splice(ran,1);
+                
+            }
+    
+            console.log(adress);
+        
+        //집어넣기 과정  
+        
+        imsi = '';
+            for(j=0; j < Math.ceil(leng / 2) ; j++){
+                
+                
+                //보존
+                imsi = $('.slide').eq(i).find('li').eq(j).children('img').attr('src');
+                //교체
+                $('.slide').eq(i).find('li').eq(j).children('img').attr('src',$('.slide').eq(i).find('li').eq(adress[j]).children('img').attr('src'));
+                console.log($('.slide').eq(i).find('li').eq(adress[j]).children('img').attr('src'))
+                
+                //보존속성 삽입
+                $('.slide').eq(i).find('li').eq(adress[j]).children('img').attr('src' , imsi);
+                
+                
+                
+            }    
+        
+    }
+    //랜덤 끝
+    
+        
+        function movement(start, end, nth, idx){
+            
+            $('.slide').eq(nth).find('li').eq(idx).children('img').css({
+                display:'block',
+                left:start
+            }).stop().animate({
+                left:end
+            }).parent().addClass('on').siblings().removeClass('on');
+        }
+        
+        var selectorIdx = null;
+        
+        
+        $('.slide .next').click(function(){
+            
+            selectorIdx = $(this).parent().index();
+
+            movement('0','-100%',selectorIdx,idxarr[selectorIdx]);
+            
+            idxarr[selectorIdx]++;
+            
+            movement('100%','0',selectorIdx,idxarr[selectorIdx]);
+            
+            
+            if(idxarr[selectorIdx] == $('.slide').eq(selectorIdx).find('li').length){
+                idxarr[selectorIdx] = 0;
+                movement('100%','0',selectorIdx,idxarr[selectorIdx]);
+            }
+        })
+        
+        $('.slide .prev').click(function(){
+            
+            selectorIdx = $(this).parent().index();
+
+            movement('0','100%',selectorIdx,idxarr[selectorIdx]);
+            
+            idxarr[selectorIdx]--;
+            
+            movement('-100%','0',selectorIdx,idxarr[selectorIdx]);
+            
+            
+            if(idxarr[selectorIdx] == -1){
+                idxarr[selectorIdx] = $('.slide').eq(selectorIdx).find('li').length - 1;
+                movement('-100%','0',selectorIdx,idxarr[selectorIdx]);
+            }
+        })
+        
+        $('.slide a').click(function(){
+            
+            selectorIdx = $(this).parents('.slide').index();
+            sel = $(this).parent().index();
+            his = $('.slide').eq(selectorIdx).find('.on').index();
+            
+            if(sel > his){
+                
+                movement('0','-100%',selectorIdx,idxarr[selectorIdx]);
+                idxarr[selectorIdx] = sel;
+                movement('100%','0',selectorIdx,sel);
+                
+            }else if(sel < his){
+                
+                movement('0','100%',selectorIdx,idxarr[selectorIdx]);
+                idxarr[selectorIdx] = sel;
+                movement('-100%','0',selectorIdx,sel);
+                
+            }
+            
+            return false;
+            
+        })
+        
+        
+            
+        
+        
+        
+    })
+    
+    
+    
+</script>
+
+</head>
+<body>
+    
+    <div class="slide">
+        
+        <button class="next">다음</button>
+        <button class="prev">이전</button>
+        
+        <div>
+            <ul>
+                <li class="on">
+                    <a href="">1</a>
+                    <img src="../images/z1.jpg">
+                </li>
+                <li>
+                    <a href="">2</a>
+                    <img src="../images/z2.jpg">
+                </li>
+                <li>
+                    <a href="">3</a>
+                    <img src="../images/z3.jpg">
+                </li>
+                <li>
+                    <a href="">4</a>
+                    <img src="../images/z4.jpg">
+                </li>
+               
+            </ul>
+        </div>
+        
+    </div>
+    
+    <div class="slide">
+        
+        <button class="next">다음</button>
+        <button class="prev">이전</button>
+        
+        <div>
+            <ul>
+                <li class="on">
+                    <a href="">1</a>
+                    <img src="../images/s1.jpg">
+                </li>
+                <li>
+                    <a href="">2</a>
+                    <img src="../images/s2.jpg">
+                </li>
+                <li>
+                    <a href="">3</a>
+                    <img src="../images/s3.jpg">
+                </li>
+                <li>
+                    <a href="">4</a>
+                    <img src="../images/s4.jpg">
+                </li>
+               
+            </ul>
+        </div>
+        
+    </div>
+   
+    <div class="slide">
+        
+        <button class="next">다음</button>
+        <button class="prev">이전</button>
+        
+        <div>
+            <ul>
+                <li class="on">
+                    <a href="">1</a>
+                    <img src="../images/z1.jpg">
+                </li>
+                <li>
+                    <a href="">2</a>
+                    <img src="../images/z2.jpg">
+                </li>
+                <li>
+                    <a href="">3</a>
+                    <img src="../images/z3.jpg">
+                </li>
+                <li>
+                    <a href="">4</a>
+                    <img src="../images/z4.jpg">
+                </li>
+                <li>
+                    <a href="">5</a>
+                    <img src="../images/z5.jpg">
+                </li>
+                <li>
+                    <a href="">6</a>
+                    <img src="../images/z4.jpg">
+                </li>
+               
+            </ul>
+        </div>
+        
+    </div>
+   
+    <div class="slide">
+        
+        <button class="next">다음</button>
+        <button class="prev">이전</button>
+        
+        <div>
+            <ul>
+                <li class="on">
+                    <a href="">1</a>
+                    <img src="../images/s1.jpg">
+                </li>
+                <li>
+                    <a href="">2</a>
+                    <img src="../images/s2.jpg">
+                </li>
+                <li>
+                    <a href="">3</a>
+                    <img src="../images/s3.jpg">
+                </li>
+                <li>
+                    <a href="">4</a>
+                    <img src="../images/s4.jpg">
+                </li>
+                
+                <li>
+                    <a href="">5</a>
+                    <img src="../images/s5.jpg">
+                </li>
+                <li>
+                    <a href="">6</a>
+                    <img src="../images/s1.jpg">
+                </li>
+                <li>
+                    <a href="">7</a>
+                    <img src="../images/s2.jpg">
+                </li>
+               
+            </ul>
+        </div>
+        
+    </div>
+    
+    
+    
+    
+    
+</body>
+</html>

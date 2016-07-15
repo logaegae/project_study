@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        
+        *{
+            margin:0;
+            padding:0;
+        }
+        ul, ol{
+            list-style:none;
+        }
+        
+        
+        .menu{
+            width: 130px;
+            border : 1px #F00 solid;
+            margin : 0 auto;
+            
+        }
+        .menu li div{
+            display:none;
+        }
+            
+    </style>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+        
+        $(function(){
+            
+            $('.menu >ul > li').click(function(){
+            
+                if(!$(this).is('.on')){
+                    $(this).addClass('on').children('div').show();
+                }else if($(this).is('.on')){
+                    $(this).removeClass('on').children('div').hide();
+                }
+            })
+            
+            // $('.menu >ul > li').click(function(){
+            //     $(this).children('div').stop().slideToggle(1000)
+                
+            // });   
+                
+            // $('.menu >ul > li').mouseenter(function(){
+               
+                
+                // $(this).children('div').stop().show(1000).parent('li').css({
+                //     'backgroundColor' : '#999'
+                // }).siblings().children('div').stop().hide(1000).parent('li').css({
+                //     'backgroundColor' : 'transparent'
+                // })
+                
+            });
+            
+            
+        })
+        
+    
+        
+        
+    </script>
+</head>
+<body>
+    <div class="menu">
+        
+        <ul>
+            <li>
+                <a href="javascript:void(0)">menu</a>
+                <div>
+                    <img src="../images/icons/coffee-cup.png"></img>
+                </div>
+            </li>
+            <li>
+                <a href="javascript:void(0)">menu</a>
+                <div>
+                    <img src="../images/icons/calculator.png"></img>
+                </div>
+            </li>
+            <li>
+                <a href="javascript:void(0)">menu</a>
+                <div>
+                    <img src="../images/icons/computer.png"></img>
+                </div>
+            </li>
+            
+        </ul>
+        
+    </div>
+</body>
+</html>

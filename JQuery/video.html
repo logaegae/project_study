@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        *{margin: 0;padding: 0;}
+        ul li{margin: 0;padding: 0;}
+        
+        .view{
+            margin-top: 50px;
+            text-align :center;
+        }
+        .list {text-align:center;margin-top: 30px;}
+        .list li {width: 150px; display:inline-block;}
+        .list li img {width: 100%;}
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            
+            $('.list li a').on({click:function(){
+                
+                var url = $(this).attr('href')
+                var location = 'https://www.youtube.com/embed/'+url+'?rel=0&amp;controls=0&amp;showinfo=0'
+                
+                $('.view iframe').attr('src',location);
+                
+                return false;
+            }    
+            })
+            
+        })
+    </script>
+</head>
+
+<body>
+    <div class="view">
+        <iframe width="640" height="360" src="https://www.youtube.com/embed/Ahif51hqeA8?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <ul class ="list">
+        <li><a href ="YBHQbu5rbdQ" ><img src="../images/u1.gif" alt=""></a></li>
+        <li><a href ="ebXbLfLACGM" ><img src="../images/u2.gif" alt=""></a></li>
+        <li><a href ="K_9tX4eHztY" ><img src="../images/u3.gif" alt=""></a></li>
+        <li><a href ="EgqUJOudrcM" ><img src="../images/u4.gif" alt=""></a></li>
+        <li><a href ="Ahif51hqeA8" ><img src="../images/u5.gif" alt=""></a></li>
+    </ul>
+    
+    
+    <!--<iframe width="560" height="315" src="https://www.youtube.com/embed/EgqUJOudrcM?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>-->
+    <!--<iframe width="560" height="315" src="https://www.youtube.com/embed/K_9tX4eHztY?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>-->
+    <!--<iframe width="560" height="315" src="https://www.youtube.com/embed/ebXbLfLACGM?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>-->
+    <!--<iframe width="560" height="315" src="https://www.youtube.com/embed/YBHQbu5rbdQ?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>-->
+    
+</body>
+</html>

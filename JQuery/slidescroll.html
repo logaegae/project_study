@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            var idx = 0;
+            var count = Math.ceil($('.slide ul li').size() / 5);
+            var viewThumb = 5;
+            
+            $('.slide ul').css({
+                width:function(){
+                    var lis = $('.slide ul li')
+                    return lis.width() * lis.size() + 'px';
+                }
+            })
+            
+            
+            
+            function movement(direct) {
+                var aa = -(direct) * $('.slide ul li').width() * viewThumb
+                
+                $('.slide ul').animate({
+                        left: '+='+aa+'px'
+                })
+                idx = idx + (direct)
+            }
+            
+           
+           
+            $('.right_btn').click(function(){
+                if(idx > count -2){
+                    return;
+                }else{
+                    movement(+1)
+                }
+            })
+            $('.left_btn').click(function(){
+                if(idx == 0){
+                    return;
+                }else{
+                    movement(-1)
+                }
+            })
+            $('ul li').click(function(){
+                var addr = $(this).css('background-image');
+                
+                $('.view').css('background-image',addr)
+            })
+            
+        })
+    </script>
+    <style type="text/css">
+    .slide{width:500px;background: #AAA;margin:0 auto;overflow:hidden;}
+    ul{list-style:none; height: 100px; width: 500px; padding: 0;margin: 0; position:relative;}
+    ul li{
+        width: 100px;
+        height: 100px;
+        
+        padding: 0;
+        margin: 0;
+        display:inline-block;
+        float:left;
+        background-repeat: no-repeat;
+        -webkit-background-size: cover;
+        background-size: cover;
+        cursor : pointer;
+    }
+    ul li:nth-child(1){background-image: url(../images/z1.jpg);}
+    ul li:nth-child(2){background-image: url(../images/z2.jpg);}
+    ul li:nth-child(3){background-image: url(../images/z3.jpg);}
+    ul li:nth-child(4){background-image: url(../images/z4.jpg);}
+    ul li:nth-child(5){background-image: url(../images/z5.jpg);}
+    
+    ul li:nth-child(6){background-image: url(../images/s1.jpg);}
+    ul li:nth-child(7){background-image: url(../images/s2.jpg);}
+    ul li:nth-child(8){background-image: url(../images/s3.jpg);}
+    ul li:nth-child(9){background-image: url(../images/s4.jpg);}
+    ul li:nth-child(10){background-image: url(../images/s5.jpg);}
+    
+    ul li:nth-child(11){background-image: url(../images/z5.jpg);}
+    ul li:nth-child(12){background-image: url(../images/z4.jpg);}
+    ul li:nth-child(13){background-image: url(../images/z3.jpg);}
+    ul li:nth-child(14){background-image: url(../images/z2.jpg);}
+    ul li:nth-child(15){background-image: url(../images/z1.jpg);}
+    .view {
+        
+        width: 500px;
+        height: 500px;
+        margin : 0 auto 30px;
+        background-position: center center;
+        -webkit-background-size: cover;
+        background-size: cover;
+        background-image: url(../images/z1.jpg);
+    }
+    button{
+        width: 60px;
+        height: 30px;
+        position : absolute;
+        z-index:1;
+        top : 580px;
+        left: 50%;
+        
+    }
+    .left_btn{margin-left:-330px;}
+    .right_btn{margin-left:270px;}
+    </style>
+    
+</head>
+<body>
+    <button class="left_btn">왼쪽</button>
+    <button class="right_btn">오른쪽</button>
+    <div class="view"></div>
+    <div class = "slide">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            
+            
+          
+        </ul>
+    </div>
+</body>
+</html>

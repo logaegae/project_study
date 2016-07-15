@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript">
+        
+    
+    
+    
+        $(function(){
+            
+            var secondsArr = [];
+            var hoursArr = [];
+            var minutesArr = [];
+            var secondsIdx = ['','',0,0];
+            var minutesIdx = ['','',0,0];
+            var hoursIdx = ['','',0,0];
+            
+            setInterval(function(){
+                var time = new Date();
+                var hours = time.getHours();
+                var minutes = time.getMinutes();
+                var seconds = time.getSeconds();
+                
+                function timeBg(hours){
+                    if(hours >= 7 && hours <= 17){
+                        $('body').css({
+                            background: 'skyblue'
+                        })
+                    }else{
+                        $('body').css({
+                            background: '#0a15ab'
+                        })
+                        }
+                    };
+                timeBg(hours);
+                if( hours != 12) {
+                    hours = hours %12
+                }
+                hours = arrPush(hours,hoursArr);
+                minutes = arrPush(minutes,minutesArr);
+                seconds = arrPush(seconds,secondsArr);
+                
+                timeprint(hoursIdx,hours,$('.hours'))
+                timeprint(minutesIdx,minutes,$('.minutes'))
+                timeprint(secondsIdx,seconds,$('.seconds'))
+                
+            },1000);
+            
+            function timeprint(idxType,time,target){
+                
+                target.children('span').each(function(i,e){
+                    
+                    //처음에 기본 좌표를 새 주소에 할당
+                    //1초전 시간과 지금 시간 비교
+                    //시간이 다르면 움직임
+                    //전의 좌표에 -100px
+                    
+                    if(idxType[i] == ''){
+                        idxType[i] = time[i];
+                        idxType[i + 2] = -Number(time[i])*100;
+                    }
+                    else if( idxType[i] != time[i]){
+                        idxType[i] = time[i];
+                        idxType[i + 2] = idxType[i + 2] - 100;
+                    };    
+                        $(e).css({
+                            transition : '500ms',
+                            backgroundPosition : '0 ' + idxType[i + 2] + 'px'
+                        });
+                    //60진법에서 숫자가 계속 올라가는 버그? >> 배경이미지를 따로 주어 해결...
+                    //윈도우 탭을 바꾸면 시계가 잘 동작안함...
+                });
+                
+            };
+            
+            
+            
+            
+            //시간 배열담은 결과 반환
+            function arrPush(time,arr){
+                arr = [];
+                
+                if(time <= 9){
+                    time = "0"+time;
+                }
+                
+                time = String(time);
+                for(i=0; i < time.length; i++){
+                    arr.push(time.substring(i,i+1))
+                }
+                return arr
+            }
+            
+            // each 3 in time
+            
+        })
+        
+        
+    </script>
+    <style>
+        body{background: #000;color:#FFF;}
+        body>div>div{display:inline-block;}
+        body span{width: 42px;height: 58px; display:inline-block;text-indent:-9999px;border:1px #FFF solid;}
+        
+        .hours span:first-child{background-image: url(../images/txt-num-0-1.png);}
+        .hours span:first-child+span{background-image: url(../images/txt-num.png);}
+        .minutes span:first-child{background-image: url(../images/txt-num-0-5.png);}
+        .minutes span:first-child+span{background-image: url(../images/txt-num.png);}
+        .seconds span:first-child{background-image: url(../images/txt-num-0-5.png);}
+        .seconds span:first-child+span{background-image: url(../images/txt-num.png);}
+        
+    </style>
+</head>
+<body>
+    <div class="time" style="font-size:30px;">
+        <div class="hours">
+            <span></span>
+            <span></span>
+        </div>
+        
+        <div class="minutes">
+            <span></span>
+            <span></span>
+        </div>
+        
+        <div class="seconds">
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</body>
+</html>
+

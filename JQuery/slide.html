@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+    <title>Document</title>
+</head>
+<style type="text/css">
+    *{padding:0;margin:0;}
+    ul,ol{list-style:none;}
+    .slide {margin : 0 auto; width: 800px; position:relative;}
+    .slide button {position:absolute; top:50%;}
+    .slide button.prev {left:0px;}
+    .slide button.next {right:0px;}
+    .slide >div { height: 500px; margin: 0 auto; width: 600px; position:relative; border:1px #000 solid; overflow:hidden;}
+    .slide ul {text-align:center;}
+    .slide ul li {width: 30px; height: 30px;line-height: 30px;text-align:center;display:inline-block;margin-left:10px;}
+    .slide ul li a{border:1px #000 solid; display:inline-block;width: 30px; height: 30px; position:absolute; top:450px; color:#000; text-decoration:none; }
+    .slide img {  width: 100%; height:400px; display:none; position:absolute;left:0px;}
+    .slide .on a {background: #000; color : #FFF;}
+    .slide li:first-child img{display:block;}
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    $(function(){
+        
+        var idx = 0;
+        var slideWidth = $('.slide ul').width();
+        
+        
+        
+        $('.next').click(function(){
+            
+            $('.slide .on img').stop().animate({
+                left:-slideWidth
+            }).parent().removeClass('on').next().addClass('on').children('img').css({
+                display:'block',
+                left:slideWidth
+            }).stop().animate({left:0})
+            
+            idx++
+            
+            if( idx == $('.slide li').size() ) {
+                idx = 0;
+                $('.slide li').eq(idx).addClass('on').children('img').css({
+                left:slideWidth
+                }).stop().animate({
+                left:'0'
+            })
+            }
+        })
+        
+        
+        
+        $('.prev').click(function(){
+            
+            $('.slide .on img').stop().animate({
+                left:slideWidth
+            }).parent().removeClass('on').prev().addClass('on').children('img').css({
+                display:'block',
+                left:-slideWidth
+            }).stop().animate({left:0})
+        
+            idx--;
+            
+            if( idx == -1 ) {
+                idx = $('.slide li').size() - 1;
+                $('.slide li').eq(idx).addClass('on').children('img').css({
+                left:-slideWidth,
+                display:'block'
+                }).stop().animate({
+                left:'0'
+            })
+            }
+      })
+        
+        
+        
+        
+    $('.slide div li a').click(function(){
+        
+        var idx = $(this).parent().index();
+        var hisidx = $('.on').index();
+        
+        console.log(idx);
+        console.log(hisidx);
+       
+        
+        if(idx > hisidx){
+            
+            $('.slide .on img').stop().animate({
+                left:-slideWidth
+            }).parent().removeClass('on').parent().children('li').eq(idx).addClass('on').children('img').css({
+                display:'block',
+                left:slideWidth
+            }).stop().animate({left:0})
+            
+        }else if(idx < hisidx){
+            
+            $('.slide .on img').stop().animate({
+                left:slideWidth
+            }).parent().removeClass('on').parent().children('li').eq(idx).addClass('on').children('img').css({
+                display:'block',
+                left:-slideWidth
+            }).stop().animate({left:0})
+        }
+        
+        
+       
+    })
+    
+    var play = setInterval(function(){
+        $('.next').click();
+        
+    },3000);
+    
+    $('.slide').mouseenter(function(){
+        clearInterval(play);
+        
+    }).mouseleave(function(){
+        play = setInterval(function(){
+        $('.next').click();
+    },3000);
+    
+    })
+    
+    })
+</script>
+<body>
+    <div class="slide">
+        
+        <button class = "prev">이전</button>
+        <button class = "next">다음</button>
+        
+        <div>
+            <ul>
+                <li class = "on">
+                    <a href="javascript:void(0)">1</a>
+                    <img src="../images/b1.jpg"></img>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">2</a>
+                    <img src="../images/b2.jpg">
+                </li>
+                <li>
+                    <a href="javascript:void(0)">3</a>
+                    <img src="../images/b3.jpg">
+                </li>
+                <li>
+                    <a href="javascript:void(0)">4</a>
+                    <img src="../images/b4.jpg">
+                </li>
+            </ul>
+        </div>
+        
+    </div>
+</body>
+</html>

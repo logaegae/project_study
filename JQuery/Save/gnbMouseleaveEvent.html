@@ -1,0 +1,28 @@
+<script>
+// gnb mouseleave event
+
+	var sub_open = false;
+
+    // 설정할 것 : 마우스가 떠나면 닫힐 gnb 지정 :$('.first_lnb>li>div')
+	 $('.first_lnb>li>div').mouseleave(function(){
+	
+		sub_open = true;
+			
+	});
+	
+	var __onbodyclick = function(){
+
+        // 설정할 것 : class on이 있는가?
+		if($('.first_lnb>li').is('.on') && sub_open){
+			
+			// 설정할 것 : $('.first_lnb>li>div')
+			$('.first_lnb>li>div').slideUp()
+			
+			
+			sub_open = false;
+	
+		}
+	};
+	
+	$('body').click(__onbodyclick);
+</script>

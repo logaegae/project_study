@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    
+    <style type="text/css">
+    
+        html,body{width: 100%; height: 100%;}
+        body{
+            background-image: url(../images/s1.jpg);
+            background-repeat: no-repeat;
+            -webkit-background-size: cover;
+            background-size: cover;
+            background-position: center 30%;
+            
+        }
+        .buttons{ text-align:center; position:absolute; left:50%; top:50%; margin-left:-150px; width:300px; height:30px;}
+        
+        body button{
+            border :2px tomato solid;
+            background-color: #FFF;
+            width: 50px;
+            height: 30px;
+            
+        }
+        .close{
+            position:absolute;
+            bottom:0;
+            left:50%;
+            margin-left:-25px;
+            z-index:3;
+        }
+        .popUp{
+            background-color: #FFF;
+            position:absolute;
+            z-index:2;
+        }
+        
+        
+        .pop1 {width: 400px;height: 400px; display:none;}
+        .pop2 {width: 500px;height: 500px; display:none;}
+        .pop3 {width: 600px;height: 600px; display:none;}
+        .pop4 {width: 600px;height: 500px; display:none;}
+        .pop5 {width: 700px;height: 700px; display:none;}
+        
+        .wrap {width: 100%;height: 100%;background-repeat: no-repeat; -webkit-background-size: cover; background-size: cover;background-position: center center;}
+        
+        .pop1 .wrap{position:relative; background-image: url(../images/z1.jpg);}
+        .pop2 .wrap{position:relative; background-image: url(../images/z2.jpg);}
+        .pop3 .wrap{position:relative; background-image: url(../images/z3.jpg);}
+        .pop4 .wrap{position:relative; background-image: url(../images/z4.jpg);}
+        .pop5 .wrap{position:relative; background-image: url(../images/z5.jpg);}
+        
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+        $(function(){
+            
+            var modal_function = {
+                
+                makeBlind : function(){
+                    
+                    var bl_tag = '';
+                    bl_tag += '<div class="blind"></div>';
+                    
+                    $('body').prepend(bl_tag);
+                    $('.blind').css({
+                        backgroundColor:'#000',
+                        position:'absolute',
+                        left:0,
+                        right:0,
+                        bottom:0,
+                        top:0,
+                        zIndex:1,
+                        display:'none'
+                    
+                    })
+                    $('.blind').fadeTo(1000,0.8);
+                },
+                center : function(target){
+                        
+                        target.css({
+                            left: '50%',
+                            top: '50%',
+                            marginLeft: -(parseInt(target.css('width')) / 2)+'px',
+                            marginTop: -(parseInt(target.css('height')) / 2)+'px',
+                            
+                        })
+                    },
+                makePopUp : function(id){
+                    
+                    var pop_tag = '';
+                    
+                    pop_tag += '<div class="popUp '+id+'">';
+                    pop_tag += '<div class="wrap">';
+                    
+                    pop_tag += '</div>';
+                    pop_tag += '<button class="close">닫기</button>';
+                    pop_tag += '</div>';
+                    
+                    $('body').append(pop_tag);
+                    $('.wrap').load('loadtest.txt .'+id);
+                    
+                    this.center( $('.'+id) );
+                },
+                openPopUp : function(){
+                    
+                    var id = $(this).attr('id')
+                
+                    modal_function.makeBlind();
+                    modal_function.makePopUp(id);
+                    
+                    $('.popUp').show(1000);
+                    
+                    },
+                close : function(){
+                    $('.blind').fadeOut(1000,function(){ $(this).remove() })
+                   $('.popUp').hide(1000,function(){ $(this).remove() })
+                }
+            }
+            
+            
+            // function openPopUp(){
+            //     var id = $(this).attr('id')
+                
+                
+            //     makeBlind();
+            //     makePopUp(id);
+            //     $('.popUp').show(1000);
+            // }
+            //     function makeBlind(){
+                    
+            //         var bl_tag = '';
+            //         bl_tag += '<div class="blind"></div>';
+                    
+            //         $('body').prepend(bl_tag);
+            //         $('.blind').css({
+            //             backgroundColor:'#000',
+            //             position:'absolute',
+            //             left:0,
+            //             right:0,
+            //             bottom:0,
+            //             top:0,
+            //             zIndex:1,
+            //             display:'none'
+                    
+            //         })
+            //         $('.blind').fadeTo(1000,0.8);
+            //     }
+            //     function makePopUp(id){
+                    
+            //         var pop_tag = '';
+                    
+                    
+                    
+            //         pop_tag += '<div class="popUp '+id+'">';
+            //         pop_tag += '<div class="wrap">';
+                    
+            //         pop_tag += '</div>';
+            //         pop_tag += '<button class="close">닫기</button>';
+            //         pop_tag += '</div>';
+                    
+                    
+            //         $('body').append(pop_tag);
+            //         $('.wrap').load('loadtest.txt .'+id);
+                    
+            //         center( $('.'+id) );
+                    
+            //     }
+            //         function center(target){
+                        
+            //             target.css({
+            //                 left: '50%',
+            //                 top: '50%',
+            //                 marginLeft: -(parseInt(target.css('width')) / 2)+'px',
+            //                 marginTop: -(parseInt(target.css('height')) / 2)+'px',
+                            
+            //             })
+            //         }
+            
+            
+       
+            // function close() {
+            //     $('.blind').fadeOut(1000,function(){ $(this).remove() })
+            //     $('.popUp').hide(1000,function(){ $(this).remove() })
+            // }
+
+        $('.open').click(modal_function.openPopUp);
+        $('body').on('click','.close',modal_function.close);
+        
+        })
+    </script>
+    
+</head>
+<body>
+    <div class="buttons">
+        <button class = "open" id = "pop1">열기</button>
+        <button class = "open" id = "pop2">열기</button>
+        <button class = "open" id = "pop3">열기</button>
+        <button class = "open" id = "pop4">열기</button>
+        <button class = "open" id = "pop5">열기</button>
+    </div>
+    
+</body>
+</html>

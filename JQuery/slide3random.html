@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+    *{margin: 0;padding: 0;}
+    html,body{height: 100%;}
+    ul,ol{list-style:none;}
+    
+    .wrapper{
+        
+        width: 500px;
+        height: 430px;
+        margin: 20px auto;
+        background-color: #EFF;
+        position:relative;
+        padding-top:50px;
+    }
+    .buttons{
+        width: 100%;
+        position:relative;
+        margin-top:-15px;
+        
+    }
+    .prev{
+        width: 50px;
+        height: 30px;
+        float:left;
+        
+        background-color: #fff;
+        border:2px tomato solid;
+        cursor : pointer;
+        position:absolute;
+        left : 60px;
+        top : 392px;
+    }
+    .next{
+        width: 50px;
+        height: 30px;
+        float:right;
+
+        background-color: #fff;
+        border:2px tomato solid;
+        cursor : pointer;
+        position:absolute;
+        right: 60px;
+        top : 392px;
+        
+    }
+    .nav{
+        position:absolute;
+        left:50%;
+        margin-left:-125px;
+        bottom:20px;
+        width: 250px;
+        z-index:1;
+        
+    }
+    .nav ul{
+        text-align:center;
+        width: 100%;
+    }
+    .nav li{
+        display:inline-block;
+        width: 30px;
+        height: 30px;
+        margin: 0 5px;
+        border:2px tomato solid;
+        text-align: center;
+        background-color: #FFF;
+        
+    }
+    .nav a{
+        text-decoration:none;
+        display:inline-block;
+        color:#000;
+        height: 100%;
+        width: 100%;;
+        line-height:30px;
+    }
+    .list{
+        
+        border : 2px tomato solid;
+        width: 350px;
+        height: 350px;
+        margin: 0 auto;
+    }
+    .list ul{
+        height: 100%;
+        width: 100%;
+        background-color: #FFF;
+        position:relative;
+        overflow:hidden;
+    }
+    .list li{
+        height: 350px;
+        width: 350px;
+        background-repeat: no-repeat;
+        background-position: 60% center;
+        -webkit-background-size: cover;
+        background-size: cover;
+        display:none;
+        position:absolute;
+    }
+    .list li:first-child{
+        background-image: url(../images/s1.jpg);
+        display:block;
+    }
+    .list li:nth-child(2){
+        background-image: url(../images/s2.jpg);
+    }
+    .list li:nth-child(3){
+        background-image: url(../images/s3.jpg);
+    }
+    .list li:nth-child(4){
+        background-image: url(../images/s4.jpg);
+    }
+    .list li:nth-child(5){
+        background-image: url(../images/s5.jpg);
+    }
+    .on a{
+        background-color: tomato;
+        color:white;
+    }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+    
+        $(function(){
+            
+            var adress = [];
+            var imsi = [];
+            var length = $('.list li').length;
+            
+            
+            for(i=0;i<length;i++){
+                imsi.push(i);
+            }
+            for(i=0; i < length; i++){
+            
+                var ran = Math.floor(Math.random() * imsi.length)
+                adress.push(imsi[ran]);
+                imsi.splice(ran,1);
+            }
+            console.log(adress);
+            
+            imsi = '';
+            
+            for(i=0;i < Math.floor( length / 2) ; i++){
+                
+                imsi = $('.list li').eq(i).css('background-image');
+                $('.list li').eq(i).css({
+                    backgroundImage : $('.list li').eq(adress[i]).css('background-image')
+                })
+                $('.list li').eq(adress[i]).css({
+                    backgroundImage: imsi
+                });
+                
+            }
+            
+            var idx = 0;
+            var movement = function(start,end,idx){
+            $('.list li').eq(idx).css({
+                display:'block',
+                left:start
+            }).stop().animate({
+                left:end
+            });
+            $('.nav ul li').eq(idx).addClass('on').siblings().removeClass('on');
+            }
+            
+            $('.prev').click(function(){
+                movement('0','100%',idx);
+                idx--;
+                movement('-100%','0',idx);
+                if(idx < 0){
+                    idx = $('.list ul li').length-1;
+                    movement('-100%','0',idx);
+                }
+            })
+            
+            $('.next').click(function(){
+                movement('0','-100%',idx);
+                idx++;
+                movement('100%','0',idx);
+                if(idx == $('.list ul li').length){
+                    idx = 0;
+                    movement('100%','0',idx);
+                }
+            })
+            
+            $('.nav a').click(function(){
+                idx = $(this).parent().index();
+                his = $('.on').index();
+                if(idx > his){
+                   movement('0','-100%',his);
+                   movement('100%','0',idx);
+                }else if(idx < his){
+                   movement('0','100%',his);
+                   movement('-100%','0',idx);
+                }
+            })
+            
+            // var play = setInterval(function(){
+            //     $('.next').click();
+            // },1000);
+            
+            // $('.list').mouseenter(function(){
+            //     clearInterval(play);
+            // }).mouseleave(function(){
+            //     play = setInterval(function(){$('.next').click();},1000);
+            // })
+        
+        })
+    </script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="buttons">
+            <button class="prev">이전</button>
+            <button class="next">다음</button>
+        </div>
+        <div class="nav">
+            <ul>
+                <li class="on"><a href="javascript:void(0);">1</a></li>
+                <li><a href="javascript:void(0);">2</a></li>
+                <li><a href="javascript:void(0);">3</a></li>
+                <li><a href="javascript:void(0);">4</a></li>
+                <li><a href="javascript:void(0);">5</a></li>
+            </ul>
+        </div>
+        <div class="list">
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>지도 이동시키기</title>
+    
+</head>
+<body>
+<div id="map" style="width:500px;height:350px;"></div>
+<p>
+    <button onclick="setCenter(33.450701, 126.570667)">집1</button> 
+    <button onclick="map(32.5272646, 127.0211304)">집2</button>  
+</p>
+
+<script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=061d5a2de67921153a5564162b42cb41"></script>
+<script>
+
+
+
+
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+    
+   
+    
+    mapOption = { 
+        center: new daum.maps.LatLng(37.5760646, 127.0211504), // 지도의 중심좌표
+        level: 3 // 지도의 확대 레벨
+    };
+
+var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+function setCenter(x,y) {            
+    // 이동할 위도 경도 위치를 생성합니다 
+    var moveLatLon = new daum.maps.LatLng(x, y);
+    
+    // 지도 중심을 이동 시킵니다
+    map.setCenter(moveLatLon);
+}
+
+function map(x,y) {
+    // 이동할 위도 경도 위치를 생성합니다 
+    var moveLatLon = new daum.maps.LatLng(x,y);
+    
+    // 지도 중심을 부드럽게 이동시킵니다
+    // 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
+    map.panTo(moveLatLon);            
+} 
+var markerPosition  = new daum.maps.LatLng(37.5760646, 127.0211504); 
+
+var marker = new daum.maps.Marker({
+    position: markerPosition
+});
+
+marker.setMap(map);
+
+var iwContent = '<div style="padding:5px;">Hello World! <br><a href="http://map.daum.net/link/map/Hello World!,33.450701,126.570667" style="color:blue" target="_blank">큰지도보기</a> <a href="http://map.daum.net/link/to/Hello World!,33.450701,126.570667" style="color:blue" target="_blank">길찾기</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+    iwPosition = new daum.maps.LatLng(33.450701, 126.570667); //인포윈도우 표시 위치입니다
+
+// 인포윈도우를 생성합니다
+var infowindow = new daum.maps.InfoWindow({
+    position : iwPosition, 
+    content : iwContent 
+});
+  
+// 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
+infowindow.open(map, marker); 
+
+</script>
+</body>
+</html>

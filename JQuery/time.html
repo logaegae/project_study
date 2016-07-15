@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript">
+        
+        
+    $(function(){
+        
+        makeTime ={
+            
+            hours : [],
+            minutes : [],
+            seconds : [],
+            makeArr : function(target,prop){
+                makeTime[prop] = [];
+                for(var i=0;i<String(target).length;i++){
+                    var aa = String(target).charAt(i);
+                    makeTime[prop].push(aa);
+                    
+                }
+                if (makeTime[prop].length < 2){
+                    makeTime[prop].unshift('0')
+                }
+            },
+            movement : function(selector,prop,index){
+                
+                var aa = selector.eq(index).find('img').attr('src');   
+                var addr = makeTime[prop];
+                
+                if(!aa){
+                    selector.eq(index).html('<img src="../images/number'+addr[index]+'.gif">');
+                }else{
+                var imsi = aa.split("/");
+                var aa = imsi[2].substring(6,7);
+                var height = selector.eq(index).children('img').height();
+                
+                    if(aa != addr[index]){
+                        
+                        selector.eq(index).children('img').first().stop().animate({
+                            top : -height
+                        },800,function(){
+                            $(this).remove()
+                        });
+                        selector.eq(index).append('<img src="../images/number'+addr[index]+'.gif">').children('img').last().css({
+                            top : height
+                        }).stop().animate({
+                                top : 0
+                        },800);
+                    }
+                }    
+            }
+        }
+        
+            
+        setInterval(function(){
+            var time = new Date();
+            var hours = time.getHours();
+            var minutes = time.getMinutes();
+            var seconds = time.getSeconds();
+            
+            if( hours != 12){
+                hours = hours%12
+            }
+            
+            makeTime.makeArr(hours,'hours');
+            makeTime.makeArr(minutes,'minutes');
+            makeTime.makeArr(seconds,'seconds');
+         
+            for(i=0;i<2;i++){
+                makeTime.movement($('.h div'),'hours',i);
+                makeTime.movement($('.m div'),'minutes',i);
+                makeTime.movement($('.s div'),'seconds',i);
+            }    
+        },1000);
+    })
+        
+        
+    </script>
+    <style type="text/css">
+        ul,li{padding: 0;margin: 0;}
+        .time{text-align:center;margin-top: 50px;}
+        
+        .time>div{width: 100px;height: 100px;display:inline-block;}
+        .time>div>div{width: 48px;height: 100px;display:inline-block;position:relative;overflow:hidden;}
+        
+        img{width : 48px; height : 100px; display:inline-block;position:absolute;left:0;}
+    </style>
+</head>
+<body>
+    <div class="time">
+        <div class="h">
+            <div></div><div></div>
+        </div>시
+        <div class="m">
+            <div></div><div></div>
+        </div>분
+        <div class="s">
+            <div></div><div></div>
+        </div>초
+    </div>
+</body>
+</html>

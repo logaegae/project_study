@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript">
+        //문서를 다 읽고 다시 스크립트 불러 적용
+        $(document).ready(function(){
+        //자바실행문    
+            document.getElementById('btn').innerHTML='확인';
+            
+        // document.getElementByClass('btn').getAttribute('style').style();
+        //제이쿼리 실행문 $는 제이쿼리 함수 지시자
+        // $('.btn').html('확인(JQuery)');
+        $('.box').css({
+                    'border' : '1px #F00 solid',
+                    'width' : '100px',
+                    'height' : '100px'
+            
+                     });
+         
+        });
+        
+    </script>
+
+</head>
+<body>
+    <button id="btn">눌러줘</button>
+    
+    <div class="box">
+        
+        
+        
+    </div>
+
+
+</body>
+
+</html>

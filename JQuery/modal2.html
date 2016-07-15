@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript">
+    
+    
+        $(function(){
+            
+        function openPopUP(){
+            
+            var id = $(this).attr('id');
+            
+            blindFn();
+            makePopUp(id);
+            $('.popup').show(1000);
+        }
+            
+            function blindFn() {
+                
+                
+                var bl_tag = '';
+                bl_tag +='<div class="blind">';
+                bl_tag +='</div>';
+                
+                $('body').prepend(bl_tag);
+                $('.blind').css({
+                    position:'absolute',
+                    top:0,
+                    right: 0,
+                    left: 0,
+                    bottom: 0,
+                    backgroundColor: '#000',
+                    display:'none'
+                })
+                $('.blind').fadeTo(1000,0.8)
+            
+        }
+        
+            function makePopUp(id){
+            var tag = '';
+            var id_content = $('.'+id).html();
+            
+            tag += '<div class="popup '+id+'">';
+            tag += '<button class="closebtn">닫기</button>';
+            tag += '<div class="content">';
+            tag += id_content;
+            tag += '</div>';
+            tag += '</div>';
+            
+            $('body').prepend(tag);
+            
+            centerPosition( $('.popup') );
+           }
+        
+                function centerPosition(target){
+                    
+            target.css({
+                left:'50%',
+                marginLeft:function(){
+                    
+                    return -( parseInt($(this).css('width') ) / 2) + 'px'
+                },
+                top:'50%',
+                marginTop: function(){
+                    
+                    return -( parseInt($(this).css('height') ) / 2) + 'px'
+                }
+            })
+           
+        }
+        
+        function closeEvent(){
+            $('.popup').hide(1000,function(){$(this).remove();})
+            $('.blind').fadeOut(1000,function(){ $(this).remove(); });
+            
+        }
+        
+        $('.open').click(openPopUP);
+        
+        $('body').on('click','.closebtn', closeEvent);
+        
+        })
+    </script>
+    <style type="text/css">
+        
+        .popup{
+            
+            position:absolute;
+            z-index:1;
+            /*left:50%;*/
+            /*top: 50%;*/
+            /*margin-left: calc(-500px / 2);*/
+            /*margin-top: calc(-500px / 2);*/
+            display:none;
+            background-color: #FFF;
+        }
+        .popup button{
+            position:absolute;
+            bottom:0;
+            left:50%;
+            width: 50px;
+            margin-left:-25px;
+            
+        }
+        .pop1{display:none; background-color: #FFF; width: 300px; height: 200px; background-image: url(../images/s1.jpg);background-repeat: no-repeat;-webkit-background-size: cover; background-size: cover;background-position: center center;}
+        .pop2{display:none; background-color: #FFF; width: 400px; height: 300px; background-image: url(../images/s2.jpg);background-repeat: no-repeat;-webkit-background-size: cover; background-size: cover;background-position: center center;}
+        .pop3{display:none; background-color: #FFF; width: 200px; height: 400px; background-image: url(../images/s3.jpg);background-repeat: no-repeat;-webkit-background-size: cover; background-size: cover;background-position: center center;}
+        .pop4{display:none; background-color: #FFF; width: 300px; height: 200px; background-image: url(../images/s4.jpg);background-repeat: no-repeat;-webkit-background-size: cover; background-size: cover;background-position: center center;}
+        .pop5{display:none; background-color: #FFF; width: 200px; height: 200px; background-image: url(../images/s5.jpg);background-repeat: no-repeat;-webkit-background-size: cover; background-size: cover;background-position: center center;}
+        
+        .popup.pop1 wrap{ text-align:center; font-size:30px;}
+        .popup.pop2 wrap{ text-align:center; font-size:30px;}
+        .popup.pop3 wrap{ text-align:center; font-size:30px;}
+        .popup.pop4 wrap{ text-align:center; font-size:30px;}
+        .popup.pop5 wrap{ text-align:center; font-size:30px;}
+    </style>
+</head>
+<body>
+    
+    <button class="open" id="pop1">열어</button>
+    <button class="open" id="pop2">열어</button>
+    <button class="open" id="pop3">열어</button>
+    <button class="open" id="pop4">열어</button>
+    <button class="open" id="pop5">열어</button>
+    
+    <div class="pop1">
+        <div class="wrap">001</div>
+    </div>
+    <div class="pop2">
+        <div class="wrap">002</div>
+    </div>
+    <div class="pop3">
+        <div class="wrap">003</div>
+    </div>
+    <div class="pop4">
+        <div class="wrap">004</div>
+    </div>
+    <div class="pop5">
+        <div class="wrap">005</div>
+    </div>
+    
+</body>
+</html>

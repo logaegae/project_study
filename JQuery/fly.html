@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+
+        .wrapper {
+            width: 500px;
+            height: 5000px;
+            border: 1px #F00 solid;
+            position:relative;
+
+        }
+        .fly {
+            width: 100px;
+            height: 200px;
+            border: 1px #F00 solid;
+            position: absolute;
+            top:0;
+        }
+
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript">
+
+    $(document).ready(function(){
+
+        $('.wrapper').css({
+            left: '50%',
+            marginLeft: -($('.wrapper').width() / 2)
+            
+        })
+        
+        
+        
+        $('.fly').css({
+            left : $('.wrapper').offset().left + $('.wrapper').width() + 20
+            
+        })
+        
+        $(window).scroll(function(){
+            $('.fly').css({ top : $(window).scrollTop()+8})
+            console.log($(window).scrollTop()+8)
+        })
+    })
+
+    </script>
+
+</head>
+<body>
+    <div class="wrapper"></div>
+    <div class="fly"></div>
+</body>
+</html>
