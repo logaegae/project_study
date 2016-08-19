@@ -1,260 +1,210 @@
-// 1번
-$(function(){
-    
-    function change_Bgc_Co(target,bgc,co){
+$(window).load(function(){
+
+//1번문제
+    function bgCss(target,bg,co){
         target.css({
-            transition: '500ms',
-            backgroundColor:bgc,
-            color:co
+            backgroundColor : bg,
+            color : co,
+            transition: '500ms'
         }).children().css({
-            color:co
+            color : co
         });
     };
     $('nav ul li').on({
-        'mouseover':function(){change_Bgc_Co($(this),'rgba(0,0,0,0.5)','#DDD')},
-        'mouseout':function(){change_Bgc_Co($(this),'transparent','#000')}
-    })
-
-// 2번
-    
-    //section에 id 부여
-    $('section').each(function(i){
-        $('section').eq(i).attr('id','page'+i);
+        'mouseover': function(){bgCss($(this),'rgba(0,0,0,0.7)','#DDD')},
+        'mouseout': function(){bgCss($(this),'transparent','#000')}
     });
-    //click event 발생 시 id로 애니메이션
-    $('nav ul li a').click(function(){
-        var idx = $(this).parent('li').index();
-        
-        $('body').animate({
-            scrollTop : $('#page'+idx).offset().top
+
+//2번문제
+    $('nav ul li').click(function(){
+        var alphabet = ['a','b','c','d','e','f','g','h'];
+        var idx = $(this).index();
+        var sct = $('.'+alphabet[idx]+'-type').offset().top;
+
+        $('body').stop().animate({
+            scrollTop: sct
         });
-        
         return false;
     });
 
-// 3번
-    //관련함수 객체선언
-    var slideFnc = {
+//3번문제
+    slideFn = {
         idx : 0,
         movement : function(target,start,end){
             target.css({
                 display:'block',
-                left : start
+                left:start
             }).stop().animate({
                 left:end
             });
         },
-        randomPickUp : function(leng,targets,att){
-            //랜덤순서생성
-            var adress = []; 
-            var imsi = [];
-           
-                for(i=0; i<leng; i++){
-                    imsi.push(i);
-                }
-                for(j=0; j <leng; j++){
-                    var ran = Math.floor(Math.random() * imsi.length)
-                    adress.push(imsi[ran]);
-                    imsi.splice(ran,1);
-                }
-                
-            //집어넣기 과정  
-            imsi = '';
-                for(i=0;i < Math.ceil( leng / 2) ; i++){
-                    //보존
-                    imsi = targets.eq(i).children('img').attr(att);
-                    //교체
-                    targets.eq(i).children('img').attr(
-                        att, targets.eq(adress[i]).children('img').attr(att)
-                    )
-                    //보존속성 삽입
-                    targets.eq(adress[i]).children('img').attr(att, imsi);
-                }    
-        },
         moveOn : function(target){
-            target.addClass('on').siblings().removeClass('on')
+            target.addClass('on').siblings().removeClass('on');
         }
     };
-    //다음버튼 click시 event, 문제 1. 2. 13.
-    
+    //3-1, 3-2, 3-13. 다음버튼 클릭시 이동
     $('.slidebanner .next').click(function(){
-        slideFnc.movement($('.slidebanner ul li').eq(slideFnc.idx).children('img'),0,'-100%');
-        slideFnc.idx++;
-        slideFnc.movement($('.slidebanner ul li').eq(slideFnc.idx).children('img'),'100%',0);
-        slideFnc.moveOn($('.slidebanner ul li').eq(slideFnc.idx))
-        
-        if (slideFnc.idx >= $('.slidebanner ul li').length){
-            slideFnc.idx = 0;
-            slideFnc.movement($('.slidebanner ul li').eq(slideFnc.idx).children('img'),'100%',0);
-            slideFnc.moveOn($('.slidebanner ul li').eq(slideFnc.idx))
-        }
-    });
-    //이번버튼  click시 event, 문제 3. 4. 13.
+        slideFn.movement($('.slidebanner li').eq(slideFn.idx).children('img'),0,'-100%');
+        slideFn.idx++;
+        if(slideFn.idx === $('.slidebanner li').length)  slideFn.idx = 0;
+        slideFn.movement($('.slidebanner li').eq(slideFn.idx).children('img'),'100%',0);
+        slideFn.moveOn($('.slidebanner li').eq(slideFn.idx));
+    })
+
+    //3-3, 3-4, 3-13. 이전버튼 클릭시 이동
     $('.slidebanner .prev').click(function(){
-        slideFnc.movement($('.slidebanner ul li').eq(slideFnc.idx).children('img'),0,'100%');
-        slideFnc.idx--;
-        slideFnc.movement($('.slidebanner ul li').eq(slideFnc.idx).children('img'),'-100%',0);
-        slideFnc.moveOn($('.slidebanner ul li').eq(slideFnc.idx))
-        
-        if (slideFnc.idx < 0){
-            slideFnc.idx = $('.slidebanner ul li').length - 1;
-            slideFnc.movement($('.slidebanner ul li').eq(slideFnc.idx).children('img'),'-100%',0);
-            slideFnc.moveOn($('.slidebanner ul li').eq(slideFnc.idx))
-        }
+        slideFn.movement($('.slidebanner li').eq(slideFn.idx).children('img'),0,'100%');
+        slideFn.idx--;
+        if(slideFn.idx === -1)  slideFn.idx = $('.slidebanner li').length - 1;
+        slideFn.movement($('.slidebanner li').eq(slideFn.idx).children('img'),'-100%',0);
+        slideFn.moveOn($('.slidebanner li').eq(slideFn.idx));
+    })
+
+    //3-5, 3-11. 이미지 이동
+    var slideInv = setInterval(function(){$('.slidebanner .prev').click();},4500);
+
+    //3-6, 3-7. 마우스 오버 이벤트
+    $('.slidebanner ul, .slidebanner button').on({
+        'mouseenter': function(){clearInterval(slideInv);},
+        'mouseleave': function(){slideInv = setInterval(function(){$('.slidebanner .prev').click();},4500);}
     });
-    //interval 선언, 문제 5. 11.
-    var interval_c = setInterval(function(){
-        $('.slidebanner .prev').click()
-    },4500);
-    //mouse event에 따라 interval 조절, 문제 6. 7. 11.
-    $('.slidebanner ul').on({
-        'mouseenter':function(){clearInterval(interval_c);},
-        'mouseleave':function(){
-            interval_c = setInterval(function(){
-                $('.slidebanner .prev').click();
-            },4500)
-        }
+
+    // 3-8, 3-9, 3-11. 버튼 클릭시 이동
+    $('.slidebanner li a').click(function(){
+        var sel = $(this).parent('li').index();
+        var his = $('.slidebanner .on').index();
+        if( sel > his){
+            slideFn.movement($('.slidebanner li').eq(his).children('img'),0,'-100%');
+            slideFn.movement($('.slidebanner li').eq(sel).children('img'),'100%',0);
+            slideFn.idx = sel;
+            slideFn.moveOn($('.slidebanner li').eq(slideFn.idx));
+        }else if( sel < his){
+            slideFn.movement($('.slidebanner li').eq(his).children('img'),0,'100%');
+            slideFn.movement($('.slidebanner li').eq(sel).children('img'),'-100%',0);
+            slideFn.idx = sel;
+            slideFn.moveOn($('.slidebanner li').eq(slideFn.idx));
+        };
     });
-    //번호 클릭시 event, 문제 8. 9. 12.
-    $('.slidebanner ul li a').click(function(){
-        var selc = $(this).parent().index();
-        var his = $('.slidebanner ul .on').index();
-        
-        if( selc > his ) {
-            slideFnc.movement($('.slidebanner ul li').eq(his).children('img'),0,'-100%');
-            slideFnc.movement($('.slidebanner ul li').eq(selc).children('img'),'100%',0);
-            slideFnc.moveOn($('.slidebanner ul li').eq(selc));
-        }else if( selc < his ) {
-            slideFnc.movement($('.slidebanner ul li').eq(his).children('img'),0,'100%');
-            slideFnc.movement($('.slidebanner ul li').eq(selc).children('img'),'-100%',0);
-            slideFnc.moveOn($('.slidebanner ul li').eq(selc));
-        }
+    // 3-10. 사진 랜덤 바꾸기
+    var adress = [];
+    var imsi = [];
+    $('.slidebanner li').each(function(i){
+        imsi.push(i);
     });
-    //랜덤 시작, 문제 10.
-    slideFnc.randomPickUp($('.slidebanner ul li').length, $('.slidebanner ul li'),'src');
-//4번
-    //관련함수 객체선언
-    var fadeFnc = {
+    for(i=0; i < imsi.length; i++){
+        var ran = Math.floor(Math.random() * imsi.length);
+        adress.push(imsi[ran]);
+        imsi.splice(ran,1);
+    };
+    imsi = '';
+        for(i=0;i < Math.ceil( length / 2) ; i++){
+            imsi = $('.slidebanner li').eq(i).children('img').attr('src');
+            $('.slidebanner li').eq(i).children('img').attr({
+                'src': $('.slidebanner li').eq(adress[i]).children('img').attr('src') });
+            $('.slidebanner li').eq(adress[i]).children('img').attr('src',imsi);
+        };
+
+//4번문제
+    var fadeFn = {
         idx : 0,
-        fadeMove : function(target1,target2){
-            target1.children('img').fadeOut();
-            target2.children('img').fadeIn();
+        movement : function(index){
+            $('.fadebanner .on').children('img').fadeOut();
+            $('.fadebanner li').eq(index).children('img').fadeIn();
+            fadeFn.idx = index;
+        },
+        nextMove : function(){
+            if($('.fadebanner .on').index() === $('.fadebanner li').length - 1 ){
+                fadeFn.movement(0);
+            }else{
+                fadeFn.movement($('.fadebanner .on').index() + 1);
+            };
+            slideFn.moveOn($('.fadebanner li').eq(fadeFn.idx));
         }
     };
-    //순환하며 움직이는 함수선언
-    function dInvFnc(){
-       if(fadeFnc.idx == $('.fadebanner ul li').length - 1){
-            fadeFnc.idx = 0;
-            fadeFnc.fadeMove($('.fadebanner ul .on'),$('.fadebanner ul li').eq(fadeFnc.idx));
-       }else{
-           fadeFnc.fadeMove($('.fadebanner ul li').eq(fadeFnc.idx),$('.fadebanner ul li').eq(fadeFnc.idx + 1));
-           fadeFnc.idx++;
-       }
-       slideFnc.moveOn($('.fadebanner ul li').eq(fadeFnc.idx));
-    }
-    // interval 선언, 문제 1.
-    var interval_d = setInterval(function(){dInvFnc()},4800);
-    //mouse event에 따라 interval 조절, 문제 2. 3.
-    $('.fadebanner ul').mouseenter(function(){
-        clearInterval(interval_d);
-    }).mouseleave(function(){
-        interval_d = setInterval(function(){dInvFnc()},4800);
+    // 4-1. 인터벌
+    fadeInv = setInterval(function(){fadeFn.nextMove()},4800);
+    // 4-2, 4-3. 마우스 오버 이벤트
+    $('.fadebanner').on({
+        'mouseenter':function(){clearInterval(fadeInv);},
+        'mouseleave':function(){fadeInv = setInterval(function(){fadeFn.nextMove()},4800);}
     });
-    //번호 click event, 4. 5.
-     $('.fadebanner ul li a').click(function(){
-        fadeFnc.idx = $(this).parent('li').index();
-        
-        fadeFnc.fadeMove($('.fadebanner ul .on'),$('.fadebanner ul li').eq(fadeFnc.idx))
-        slideFnc.moveOn($('.fadebanner ul li').eq(fadeFnc.idx)); 
-     });
-    
-//5번
-    //클릭시 iframe 주소 변경, 문제 2.
-    $('.movie-view ul li a').click(function(){
-        var aa = $(this).attr('href');
-        $('.view iframe').attr('src','https://www.youtube.com/embed/'+aa+'?rel=0&amp;controls=0&amp;showinfo=0');
-        //투명도, 문제 3.
-        $(this).css({
-            opacity : '0.5'
-        }).parent('li').siblings().children('a').css({
-            opacity : '1.0'
-        });
+    //4-4, 4-5. 버튼 클릭시 이동
+    $('.fadebanner li a').click(function(){
+        fadeFn.movement($(this).parent('li').index());
+        slideFn.moveOn($('.fadebanner li').eq(fadeFn.idx));
+    });
+
+//5번문제
+    // 5-2. 클릭시 이미지변환
+    $('.movie-view li').click(function(){
+        var adr = $(this).children('a').attr('href');
+        $('.view iframe').attr('src','https://www.youtube.com/embed/'+adr+'?rel=0&amp;controls=0&amp;showinfo=0');
+        //5-3. 클릭시 반투명
+        $(this).find('img').css('opacity','0.5').parents('li').siblings().find('img').css('opacity','1');
         return false;
     });
-//6번
+
+//6번문제
     $(window).scroll(function(){
         $('.wing').stop().animate({
-            top : $(window).scrollTop()
-        })
-    })
-    
-
-
-//7번
-    //관련함수 객체선언
-    var popFnc = {
-        
-        blind : function(){
+            top: $('body').scrollTop()
+        });
+    });
+//7번문제
+    var popFn = {
+        makeBlind : function(){
             $('body').append('<div class="blind"></div>');
             $('.blind').css({
-                position:'fixed',
+                display: 'block',
+                position : 'fixed',
                 top:0,
                 bottom:0,
                 left:0,
                 right:0,
-                backgroundColor:'#000',
-                display:'none'
-            }).fadeTo('1000ms',0.5);
+                backgroundColor: 'rgba(0,0,0,0.7)'
+            });
         },
         makePop : function(target){
             target.css({
-                display : 'block',
-                position : 'fixed',
-                bottom : $(window).height()
-            })
-            target.append('<button class="close">닫기</button>')
-        },
-        centerPop :function(target){
-            target.css({
-                left:'50%',
-                marginLeft: -target.width() / 2,
+                display:'block',
+                position:'fixed',
                 zIndex:1
-            })
-        },
-        openPop : function(target){
-            this.blind();
-            this.makePop(target);
-            this.centerPop(target);
-            
+            });
+            target.append('<button class="close">닫기</button>');
+            popFn.centerPop(target);
             target.animate({
                 top: '50%',
                 marginTop: -target.height() / 2
-            })
-        },
-        closeFnc : function(){
-            $('.blind').fadeOut(function(){
-                $(this).remove();
             });
-            $('.pop').fadeOut().css({top : -$(window).height()});
-            $('.close').fadeOut().remove();
+        },
+        centerPop : function(target){
+            target.css({
+                position: 'fixed',
+                left: '50%',
+                marginLeft: -target.width() / 2,
+                top: -$(window).height()
+            });
+        },
+        closePop : function(){
+            $('.blind').fadeOut(function(){$(this).remove();});
+            $('.pop').fadeOut(function(){$(this).css({top : -$(window).height()});});
+            $('.close').fadeOut(function(){$(this).remove();});
         }
-    };
-    //블라인드 클릭하면 블라인드 사라지기..심심해서 해봄
-    $('body').on('click','.blind',function(){
-        
-        $('.blind').fadeOut(function(){
-            $(this).remove();
-        });
-        $('.pop').fadeOut().css({top : -$(window).height()});
-        $('.close').fadeOut().remove();
-    });
-    //클릭시 팝업 나옴, 문제 1. 2. 3. 
+    }
+
+    //버튼 클릭 이벤트
     $('.btngroup button').each(function(i){
-       var j = i + 1;
-       $('.btngroup .eventBt0'+j).click(function(){
-        popFnc.openPop($('.event'+j+'.pop'));
-        }); 
+        var j = i + 1;
+        $('.btngroup .eventBt0' + j).click(function(){
+            //7-1, 7-3. 팝업 나와서 애니메이션, 닫기버튼 생성
+            popFn.makePop( $('.event'+j+'.pop') );
+            //7-2. 블라인드 만들기
+            popFn.makeBlind();
+
+        });
     });
-    $('body').on('click','.close',popFnc.closeFnc)
-    
+    // 7-4, 7-5.
+    $('.pop').on('click','.close',popFn.closePop);
+    //블라인드 클릭시 닫기
+    $('body').on('click','.blind',popFn.closePop);
 })

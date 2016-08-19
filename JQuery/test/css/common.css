@@ -47,5 +47,4 @@ div.content>section>div>ol{list-style-position:inside; font-size:14px; line-heig
 .event2{width:200px;height:400px;}
 .event3{width:400px;height:400px;}
 .event4{width:300px;height:500px;}
-.blind{position:absolute; top:0; left:0; right:0; bottom:0; display: none; background-color: #000}
 .close { position: absolute; bottom : 10px; width: 50px; height: 30px; margin-left:-25px;}
